@@ -45,7 +45,7 @@ include('../layaout/sesion.php');
 <div class="card-body">
 <div class="form-group">
 
-<input type="text" name="id_usuario" id="id_usuario" class="form-control" value="<?php echo $id_usuario_get_DAO; ?> " disabled>
+<input type="hidden" name="id_usuario" id="id_usuario" class="form-control" value="<?php echo $id_usuario_get_DAO; ?> ">
 
 <label for="nombres">Nombre:</label>
 <input type="text" name="nombres" value="<?php echo $nombre_DAO; ?>" class="form-control" id="nombres" placeholder="Nombre" disabled>
