@@ -56,22 +56,22 @@ if(isset($_SESSION['mensaje'])){
 <div class="card-body">
 <div class="form-group">
 <label for="nombres">Nombre:</label>
-<input type="text" name="nombres" class="form-control" id="nombres" placeholder="Nombre">
+<input type="text" name="nombres" class="form-control" id="nombres" placeholder="Nombre" required>
 </div>
 
 <div class="form-group">
 <label for="email">Correo:</label>
-<input type="email" name="email" class="form-control" id="email" placeholder="Correo">
+<input type="email" name="email" class="form-control" id="email" placeholder="Correo" required>
 </div>
 
 <div class="form-group">
 <label for="password_user">Contraseña:</label>
-<input type="text" name="password_user" class="form-control" id="password_user" placeholder="Password">
+<input type="text" name="password_user" class="form-control" id="password_user" placeholder="Password" required>
 </div>
 
 <div class="form-group">
 <label for="password_repeat">Confirmar la Contraseña:</label>
-<input type="text" class="form-control" name="password_repeat" id="password_repeat">
+<input type="text" class="form-control" name="password_repeat" id="password_repeat" required>
 </div>
 
 </div>

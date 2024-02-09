@@ -1,13 +1,14 @@
-<?php 
+<?php
+/**
+ * LINCENSE BRYAN
+ */
+
 include('../app/config.php'); 
-include('../app/controllers/usuarios/update_usuario_dao.php');
+include('../app/controllers/usuarios/show_usuario_dao.php');
 include('../layaout/sesion.php');
-include('../layaout/parte1.php');
 ?>
 
-
-
-
+<?php include('../layaout/parte1.php'); ?>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -16,7 +17,7 @@ include('../layaout/parte1.php');
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Actualizar datos del Usuario</h1>
+            <h1 class="m-0">Borrar Usuario</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -34,44 +35,32 @@ include('../layaout/parte1.php');
       <div class="container-fluid">
 
           <div class="row-6 col-6 mx-auto">
-          <div class="card card-primary">
+          <div class="card card-danger">
 <div class="card-header">
-<h3 class="card-title">Llene los datos con cuidado</h3>
+<h3 class="card-title">¿Deseas eliminar este usuario?</h3>
 </div>
 
 
-<form action="../app/controllers/usuarios/update.php" method="POST">
+<form action="../app/controllers/usuarios/delete-usario-dao.php" method="POST">
 <div class="card-body">
-
 <div class="form-group">
-<input type="hidden" name="id_usuario" value="<?php echo $id_usuario; ?>" class="form-control" id="id_usuario" required>
-</div>
 
-<div class="form-group">
+<input type="text" name="id_usuario" id="id_usuario" class="form-control" value="<?php echo $id_usuario_get_DAO; ?> " disabled>
+
 <label for="nombres">Nombre:</label>
-<input type="text" name="nombres" value="<?php echo $nombre_DAO; ?>" class="form-control" id="nombres" placeholder="Nombre" required>
+<input type="text" name="nombres" value="<?php echo $nombre_DAO; ?>" class="form-control" id="nombres" placeholder="Nombre" disabled>
 </div>
 
 <div class="form-group">
 <label for="email">Correo:</label>
-<input type="email" name="email" value="<?php echo $correo_DAO; ?>" class="form-control" id="email" placeholder="Correo" required>
-</div>
-
-<div class="form-group">
-<label for="password_user">Contraseña:</label>
-<input type="text" name="password_user" class="form-control" id="password_user" placeholder="Password">
-</div>
-
-<div class="form-group">
-<label for="password_repeat">Confirmar la Contraseña:</label>
-<input type="text" class="form-control" name="password_repeat" id="password_repeat">
+<input type="email" name="email" value="<?php echo $correo_DAO; ?>" class="form-control" id="email" placeholder="Correo" disabled>
 </div>
 
 </div>
 
 <div class="card-footer">
-<button type="submit" class="btn btn-success">Guardar</button>
-<a href="<?php echo $url;  ?>usuarios" class="btn btn-secondary">Regresar</a>
+<button class="btn btn-danger">Confirmar</button>
+<a href="<?php echo $url;  ?>usuarios" class="btn">Regresar</a>
 </div>
 </form>
 </div>

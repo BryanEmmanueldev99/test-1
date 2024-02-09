@@ -81,7 +81,7 @@ if(isset($_SESSION['mensaje'])){
    <div class="btn-group">
    <a href="/usuarios/show.php?id=<?php echo $id_usuario_DAO; ?>" class="btn btn-primary"><i class="fa fa-eye"></i> Ver</a>
    <a href="/usuarios/update.php?id=<?php echo $id_usuario_DAO; ?>" class="btn btn-primary"><i class="fa fa-pencil-alt"></i> Editar</a>
-   <a href="" class="btn btn-primary"><i class="fa fa-trash"></i> Borrar</a>
+   <a href="/usuarios/delete.php?id=<?php echo $id_usuario_DAO; ?>" class="btn btn-primary"><i class="fa fa-trash"></i> Borrar</a>
    </div>
 </td>
 </tr>
