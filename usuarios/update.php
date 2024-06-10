@@ -1,6 +1,7 @@
 <?php 
 include('../app/config.php'); 
 include('../app/controllers/usuarios/update_usuario_dao.php');
+include('../app/controllers/roles/listado_de_roles.php');
 include('../layaout/sesion.php');
 include('../layaout/parte1.php');
 ?>
@@ -20,8 +21,8 @@ include('../layaout/parte1.php');
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Crear Usuario</a></li>
-              <li class="breadcrumb-item active">Crear</li>
+              <li class="breadcrumb-item"><a href="#">Actualizar datos del Usuario</a></li>
+              <li class="breadcrumb-item active">Actualización</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -40,21 +41,39 @@ include('../layaout/parte1.php');
 </div>
 
 
-<form action="../app/controllers/usuarios/update.php" method="POST">
+<form class="shadow" action="../app/controllers/usuarios/update.php" method="POST">
 <div class="card-body">
 
 <div class="form-group">
 <input type="hidden" name="id_usuario" value="<?php echo $id_usuario; ?>" class="form-control" id="id_usuario" required>
 </div>
 
+
 <div class="form-group">
 <label for="nombres">Nombre:</label>
 <input type="text" name="nombres" value="<?php echo $nombre_DAO; ?>" class="form-control" id="nombres" placeholder="Nombre" required>
 </div>
 
+
 <div class="form-group">
 <label for="email">Correo:</label>
 <input type="email" name="email" value="<?php echo $correo_DAO; ?>" class="form-control" id="email" placeholder="Correo" required>
+</div>
+
+<div class="form-group">
+<label for="rol">Rol de usuario:</label>
+<select name="rol" class="form-control" id="rol" required>
+ <?php foreach($roles_info as $rol_dato){ 
+    $rol_id = $rol_dato['id_rol'];
+    $rol_tabla = $rol_dato['rol']; ?>
+    
+   <option value="<?php echo $rol_id; ?>"
+      <?php if($rol_tabla == $rol) { ?>
+         selected="selected"
+      <?php } ?>
+   ><?php echo $rol_tabla; ?></option>
+ <?php } ?>
+</select>
 </div>
 
 <div class="form-group">
@@ -70,8 +89,8 @@ include('../layaout/parte1.php');
 </div>
 
 <div class="card-footer">
-<button type="submit" class="btn btn-success">Guardar</button>
-<a href="<?php echo $url;  ?>usuarios" class="btn btn-secondary">Regresar</a>
+<button type="submit" class="btn btn-primary">Actualizar usuario</button>
+<a href="<?php echo $url;  ?>usuarios" class="btn btn-default">Regresar</a>
 </div>
 </form>
 </div>

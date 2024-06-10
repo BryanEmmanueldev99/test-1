@@ -4,6 +4,121 @@
     padding: 0 !important;
     text-align: center;
 }
+
+/*Globales bootstrapp 5*/
+.dropdown-menu.dropdown-menu-lg.dropdown-menu-right.show {
+    border: none !important;
+    border-radius: 5px !important;
+}
+
+.btn-primary {
+    background-color: #0866ff !important;
+    border: 1px solid #0866ff !important;
+}
+.btn-primary:hover {
+    background-color: #177fee !important;
+    border: 1px solid #177fee !important;
+    transform: scale(0.99) !important;
+}
+
+.btn-default{
+   background-color: #e4e6eb !important;
+   border: 1px solid #e4e6eb !important;
+}
+
+.btn-success {
+    background-color: #40b95c !important;
+    border-color: #40b95c !important;
+}
+.btn-secondary {
+    color: #1180f7 !important;
+    background: none !important;
+    border: 2px solid #1180f7 !important;
+    font-weight: bold;
+}
+.card-footer {
+    background-color: #fff !important;
+}
+
+/*conten-wraper*/
+.content-wrapper {
+    background-color: #f0f8f8f3;
+}
+
 .admin_thubmnail{
     width: 150px;
 }
+.even td {
+    vertical-align: baseline !important;
+}
+.odd td {
+    vertical-align: baseline !important;
+}
+.card {
+    box-shadow: none;
+    margin-bottom: 0;
+    padding-bottom: 2rem;
+    background: none;
+}
+
+[class*=sidebar-dark] .brand-link {
+    border-bottom: none;
+}
+[class*=sidebar-dark] .user-panel {
+    border-bottom: 1px solid #eee;
+}
+
+[class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link:focus, [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link:hover {
+    background-color: rgba(255, 255, 255, .1);
+    color: #524b4b;
+}
+[class*=sidebar-dark-] .nav-sidebar>.nav-item.menu-open>.nav-link, [class*=sidebar-dark-] .nav-sidebar>.nav-item:hover>.nav-link, [class*=sidebar-dark-] .nav-sidebar>.nav-item>.nav-link:focus{
+    color: #524b4b;
+}
+[class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link, [class*=sidebar-dark-] .sidebar a {
+    color: #524b4b !important;
+}
+[class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link:hover, [class*=sidebar-dark-] .sidebar a:hover {
+    background-color: #f8fdfd !important;
+    color: #524b4b !important;
+    transition: .5s !important;
+}
+
+/*buscador*/
+[class*=sidebar-dark] .btn-sidebar, [class*=sidebar-dark] .form-control-sidebar {
+    background-color: #fafafa;
+    border: 1px solid #ccc;
+    color: #707d7de8;
+}
+[class*=sidebar-dark] .list-group-item {
+    background-color: #fff;
+    border: none !important;
+    color: #a5a8ad;
+    box-shadow: 0 .5rem 1rem #0000001c !important;
+}
+.list-group-item:hover {
+    background-color: #fff !important;
+}
+
+.active:hover{
+    background-color: #f8fdfd !important;
+    color: #524b4b !important;
+    transition: .5s !important;
+}
+.active{
+    background:none !important;
+    color: #524b4b !important;
+    box-shadow: none !important;
+}
+/*shadows*/
+aside.main-sidebar.sidebar-dark-primary.elevation-4 {
+    background-color: #fff;
+    box-shadow: 0 .5rem 1rem #0000001c !important;
+}
+form.shadow {
+    border-radius: 3px;
+}
+.card-body {
+    background-color: #ffffff;
+}
+

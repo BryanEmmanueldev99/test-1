@@ -1,6 +1,7 @@
 <?php 
 include('../app/config.php'); 
 include('../layaout/sesion.php');
+include('../app/controllers/roles/listado_de_roles.php');
 ?>
 
 
@@ -48,11 +49,11 @@ if(isset($_SESSION['mensaje'])){
           <div class="row-6 col-6 mx-auto">
           <div class="card card-primary">
 <div class="card-header">
-<h3 class="card-title"><?php $jsp = "Introduzca los datos cuidadosamente";   echo $jsp; ?></h3>
+<h3 class="card-title">Introduzca los datos cuidadosamente</h3>
 </div>
 
 
-<form action="../app/controllers/usuarios/create.php" method="POST">
+<form class="shadow" action="../app/controllers/usuarios/create.php" method="POST">
 <div class="card-body">
 <div class="form-group">
 <label for="nombres">Nombre:</label>
@@ -62,6 +63,15 @@ if(isset($_SESSION['mensaje'])){
 <div class="form-group">
 <label for="email">Correo:</label>
 <input type="email" name="email" class="form-control" id="email" placeholder="Correo" required>
+</div>
+
+<div class="form-group">
+<label for="rol">Rol de usuario:</label>
+<select name="rol" class="form-control" id="rol" required>
+ <?php foreach($roles_info as $rol){ ?>
+   <option value="<?php echo $rol['id_rol']; ?>"><?php echo $rol['rol']; ?></option>
+ <?php } ?>
+</select>
 </div>
 
 <div class="form-group">
@@ -78,7 +88,7 @@ if(isset($_SESSION['mensaje'])){
 
 <div class="card-footer">
 <button type="submit" class="btn btn-primary">Confirmar</button>
-<a href="<?php echo $url;  ?>usuarios" class="btn btn-primary">Regresar</a>
+<a href="<?php echo $url;  ?>usuarios" class="btn btn-default">Regresar</a>
 </div>
 </form>
 </div>

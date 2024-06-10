@@ -4,17 +4,19 @@ include('../../config.php');
 //INSER INTO C-R-U-D
 $nombres = $_POST['nombres'];
 $email = $_POST['email'];
+$rol = $_POST['rol'];
 $password_user = $_POST['password_user'];
 $password_repeat = $_POST['password_repeat'];
 
 if($password_user == $password_repeat){
     $password_repeat = password_hash($password_user, PASSWORD_DEFAULT);
 
-$sql = $pdo->prepare("INSERT INTO tb_usuarios(nombres, email, password_user, fyh_creacion) 
-VALUES(:nombres, :email, :password_user, :fyh_creacion)");
+$sql = $pdo->prepare("INSERT INTO tb_usuarios(nombres, email, id_rol, password_user, fyh_creacion) 
+VALUES(:nombres, :email, :id_rol, :password_user, :fyh_creacion)");
 
 $sql->bindParam('nombres', $nombres);
 $sql->bindParam('email', $email);
+$sql->bindParam('id_rol', $rol);
 $sql->bindParam('password_user', $password_repeat);
 $sql->bindParam('fyh_creacion', $fechaHora);
 $sql->execute();

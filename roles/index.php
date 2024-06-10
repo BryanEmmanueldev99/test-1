@@ -1,7 +1,7 @@
 <?php 
 include('../app/config.php'); 
 include('../layaout/sesion.php');
-include('../app/controllers/usuarios/listado_de_usuarios.php');
+include('../app/controllers/roles/listado_de_roles.php');
 include('../layaout/parte1.php'); 
 ?>
 
@@ -30,12 +30,12 @@ if(isset($_SESSION['mensaje'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Listado de Usuarios</h1>
+            <h1 class="m-0">Listado de roles</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Listado de Usuarios</a></li>
-              <li class="breadcrumb-item active">Usuarios</li>
+              <li class="breadcrumb-item"><a href="#">Roles registrados</a></li>
+              <li class="breadcrumb-item active">roles</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -61,29 +61,25 @@ if(isset($_SESSION['mensaje'])){
                 <thead>
 <tr>
 <th style="width: 10px">ID</th>
-<th>Nombres</th>
-<th>correo</th>
-<th>Rol de usuario</th>
+<th>Rol</th>
 <th>Acciones</th>
+
 </tr>
 </thead>
 
  <tbody>
   <?php 
   $id_front_end = 0;
-  foreach($usuarios_info as $user_info) { 
-     $id_usuario_DAO = $user_info['id_usuario'];
+  foreach($roles_info as $rol) { 
+     $id_rol_DAO = $rol['id_rol'];
     ?>
 <tr>
 <td><?php echo $id_front_end = $id_front_end + 1; ?></td>
-<td><?php echo $user_info['nombres']; ?></td>
-<td><?php echo $user_info['email']; ?></td>
-<td><?php echo $user_info['rol']; ?></td>
+<td><?php echo $rol['rol']; ?></td>
+
 <td>
    <div class="btn-group">
-   <a href="<?php echo $url; ?>usuarios/show.php?id=<?php echo $id_usuario_DAO; ?>" class="btn btn-primary"><i class="fa fa-eye"></i> Ver</a>
-   <a href="<?php echo $url; ?>usuarios/update.php?id=<?php echo $id_usuario_DAO; ?>" class="btn btn-primary"><i class="fa fa-pencil-alt"></i> Editar</a>
-   <a href="<?php echo $url; ?>usuarios/delete.php?id=<?php echo $id_usuario_DAO; ?>" class="btn btn-primary"><i class="fa fa-trash"></i> Borrar</a>
+   <a href="<?php echo $url; ?>roles/update.php?id=<?php echo $id_rol_DAO; ?>" class="btn btn-primary"><i class="fa fa-pencil-alt"></i> Editar</a>
    </div>
 </td>
 </tr>
@@ -129,12 +125,12 @@ if(isset($_SESSION['mensaje'])){
       "pageLength": 5,
             "language": {
                 "emptyTable": "No hay información",
-                "info": "Mostrando _START_ a _END_ de _TOTAL_ Usuarios",
-                "infoEmpty": "Mostrando 0 a 0 de 0 Usuarios",
-                "infoFiltered": "(Filtrado de _MAX_ total Usuarios)",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Roles",
+                "infoEmpty": "Mostrando 0 a 0 de 0 Roles",
+                "infoFiltered": "(Filtrado de _MAX_ total Roles)",
                 "infoPostFix": "",
                 "thousands": ",",
-                "lengthMenu": "Mostrar _MENU_ Usuarios",
+                "lengthMenu": "Mostrar _MENU_ Roles",
                 "loadingRecords": "Cargando...",
                 "processing": "Procesando...",
                 "search": "Buscador:",

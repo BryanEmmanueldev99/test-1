@@ -1,10 +1,25 @@
 <?php 
 include('../app/config.php'); 
-include('../app/controllers/usuarios/show_usuario_dao.php');
 include('../layaout/sesion.php');
 ?>
 
-<?php include('../layaout/parte1.php'); ?>
+
+<?php  include('../layaout/parte1.php');
+/*
+if(isset($_SESSION['mensaje'])){
+  $respuesta = $_SESSION['mensaje']; ?>
+
+
+
+<script>
+    Swal.fire({
+  title: "Error",
+  text: "<?php echo $respuesta; ?>",
+  icon: "error"
+});
+</script>
+
+<?php } unset($_SESSION['mensaje']); */ ?>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -13,11 +28,11 @@ include('../layaout/sesion.php');
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Datos del Usuario</h1>
+            <h1 class="m-0">Crear Rol</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Crear Usuario</a></li>
+              <li class="breadcrumb-item"><a href="#">Creación de Rol</a></li>
               <li class="breadcrumb-item active">Crear</li>
             </ol>
           </div><!-- /.col -->
@@ -33,33 +48,23 @@ include('../layaout/sesion.php');
           <div class="row-6 col-6 mx-auto">
           <div class="card card-primary">
 <div class="card-header">
-<h3 class="card-title">Detalles</h3>
+<h3 class="card-title">Agrega un rol a la base de datos</h3>
 </div>
 
 
-<form class="shadow" action="../app/controllers/usuarios/create.php" method="POST">
-<div class="card-body">
-<div class="form-group">
-<label for="nombres">Nombre:</label>
-<input type="text" name="nombres" value="<?php echo $nombre_DAO; ?>" class="form-control" id="nombres" placeholder="Nombre" disabled>
-</div>
+<form class="shadow" action="../app/controllers/roles/create.php" method="POST">
+  <div class="card-body">
+   <div class="form-group">
+    <label for="rol">Nombre del rol:</label>
+    <input type="text" name="rol" class="form-control" id="rol" placeholder="Agregue un nombre" required>
+   </div>
+  </div>
 
-<div class="form-group">
-<label for="email">Correo:</label>
-<input type="email" name="email" value="<?php echo $correo_DAO; ?>" class="form-control" id="email" placeholder="Correo" disabled>
-</div>
-
-<div class="form-group">
-<label for="rol">Rol de usuario:</label>
-<input type="text" name="rol" value="<?php echo $rol; ?>" class="form-control" id="rol" placeholder="Rol" disabled>
-</div>
-
-</div>
-
-<div class="card-footer">
-<a href="<?php echo $url;  ?>usuarios" class="btn btn-default">Regresar</a>
-</div>
-</form>
+  <div class="card-footer">
+    <button type="submit" class="btn btn-primary">Confirmar</button>
+     <a href="<?php echo $url;  ?>roles" class="btn btn-default">Regresar</a>
+  </div>
+ </form>
 </div>
           </div>
 

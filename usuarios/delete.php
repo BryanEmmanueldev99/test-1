@@ -56,11 +56,17 @@ include('../layaout/sesion.php');
 <input type="email" name="email" value="<?php echo $correo_DAO; ?>" class="form-control" id="email" placeholder="Correo" disabled>
 </div>
 
+
+<div class="form-group">
+<label for="rol">Rol de usuario:</label>
+<input type="text" name="rol" value="<?php echo $rol; ?>" class="form-control" id="rol" placeholder="Rol" disabled>
+</div>
+
 </div>
 
 <div class="card-footer">
 <button class="btn btn-danger">Confirmar</button>
-<a href="<?php echo $url;  ?>usuarios" class="btn">Regresar</a>
+<a href="<?php echo $url;  ?>usuarios" class="btn btn-default">Regresar</a>
 </div>
 </form>
 </div>

@@ -5,7 +5,7 @@ $servidor='localhost';
 $pass = '';
 $usuario = 'root';
 $db = 'sistemadeventas';
-$url = 'http://localhost:3000/';
+$url = 'http://localhost/desarrollo-php/www.sisventasfarmaciasdjesphp.mx/';
 
 
 //public/templates/AdminLTE-3.2.0/plugins/
@@ -18,8 +18,8 @@ try{
     echo "Error al conectar a la base de datos";
 }
 
-
 date_default_timezone_set("America/Mexico_City");
 $fechaHora = date('Y-m-d h:i:s');
+
 
 

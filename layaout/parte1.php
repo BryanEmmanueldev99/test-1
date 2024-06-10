@@ -16,7 +16,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo $url; ?>public/templates/AdminLTE-3.2.0/AdminLTE-3.2.0/dist/css/adminlte.min.css">
 
-  <!--mis estilos-->
+  <!--estilos de la app-->
   <link rel="stylesheet" href="<?php echo $url; ?>public/css/index.css">
 
   <!--Sweet alert-->
@@ -26,6 +26,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="<?php echo $url; ?>public/templates/AdminLTE-3.2.0/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?php echo $url; ?>public/templates/AdminLTE-3.2.0/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="<?php echo $url; ?>public/templates/AdminLTE-3.2.0/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+  <!--estilos provicionales-->
+  <style>
+     
+  </style>
+
+  <!-- jQuery -->
+  <script src="<?php echo $url; ?>public/templates/AdminLTE-3.2.0/AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -38,10 +46,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?php echo $url; ?>" class="nav-link">Inicio</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Proveedores</a>
+        <a href="<?= $url; ?>" class="nav-link">Inicio</a>
       </li>
     </ul>
 
@@ -55,7 +60,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="navbar-search-block">
           <form class="form-inline">
             <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+              <input class="form-control form-control-navbar" type="search" placeholder="Buscar" aria-label="Search">
               <div class="input-group-append">
                 <button class="btn btn-navbar" type="submit">
                   <i class="fas fa-search"></i>
@@ -190,7 +195,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- SidebarSearch Form -->
       <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Buscar" aria-label="Search">
           <div class="input-group-append">
             <button class="btn btn-sidebar">
               <i class="fas fa-search fa-fw"></i>
@@ -204,9 +209,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
+
+               <!--Modulos usuarios-->
+          <li class="nav-item">
             <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <!--<i class="nav-icon fas fa-tachometer-alt"></i>-->
+              <i class="nav-icon fas fa-users"></i>
               <p>
                 Usuarios
                 <i class="right fas fa-angle-left"></i>
@@ -220,19 +228,120 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo $url; ?>usuarios/create.php" class="nav-link">
+                <a href="<?php echo $url; ?>usuarios/create.php" class="nav-link active">
                   <i class="nav-icon fas fa-th"></i>
                   <p>Crear Usuario</p>
                 </a>
               </li>
             </ul>
           </li>
+              
+             <!--Modulos roles-->
           <li class="nav-item">
-            <a href="<?php echo $url; ?>app/controllers/login/cerrar_sesion.php" class="nav-link">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Roles
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo $url; ?>roles/" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de Roles</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo $url; ?>roles/create.php" class="nav-link acitve wp-admin-option">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>Creación de Rol</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!--Modulos categorias-->
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tag"></i>
+              <p>
+                Categorias
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo $url; ?>categorias/" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de categorias</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+          <!--Modulos Almacen-->
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                Almacén
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo $url; ?>almacen/" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de Productos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo $url; ?>almacen/create.php" class="nav-link acitve wp-admin-option">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>Creación de Producto</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+          <!--Modulos Proveedores-->
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+            <i class="nav-icon fas fa-duotone fa-truck"></i>
+              <p>
+                Proveedores
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo $url; ?>proveedores/" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de Proveedores</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo $url; ?>proveedores/create.php" class="nav-link acitve wp-admin-option">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>Creación de Proveedor</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="<?php echo $url; ?>app/controllers/login/cerrar_sesion.php" class="nav-link acitve">
               <i class="nav-icon fas fa-door-closed"></i>   
                <p>Cerrar sesión</p>
             </a>
           </li>
+
+          
+
+          
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

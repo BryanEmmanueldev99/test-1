@@ -25,6 +25,7 @@
 
 <?php 
 session_start();
+
 if(isset($_SESSION['mensaje_login'])){
       $respuesta = $_SESSION['mensaje_login'];  ?>
       <script>
@@ -36,7 +37,9 @@ if(isset($_SESSION['mensaje_login'])){
   timer: 1200
 });
      </script>
-<?php }  unset($_SESSION['mensaje_login']);  ?>     
+<?php }  unset($_SESSION['mensaje_login']);
+
+?>     
 
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
