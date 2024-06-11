@@ -293,8 +293,8 @@ include('../layaout/parte2.php');
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary btn-block" id="btn_create">Confirmar</button>
-            <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" id="btn_create">Confirmar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
             <div class="respuesta" id="respuesta"></div>
           </div>
 
