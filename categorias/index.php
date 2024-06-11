@@ -5,7 +5,7 @@ include('../app/controllers/categorias/listado_de_categorias.php');
 include('../layaout/parte1.php'); 
 ?>
 
-<?php /*
+<?php /*holaaaaaaaagit push
 if(isset($_SESSION['mensaje'])){
   $respuesta = $_SESSION['mensaje']; ?>
 
