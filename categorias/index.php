@@ -113,7 +113,7 @@ if(isset($_SESSION['mensaje'])){
                     <small style="color:red; display:none;" id="update_categoria_validate<?php echo $id_categoria_DAO; ?>">*Este campo es requerido.</small>
                   </div>
 
-            <div class="modal-footer justify-content-between">
+            <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
               <button type="button" class="btn btn-primary" id="btn_update<?php echo $id_categoria_DAO; ?>">Actualizar la categoría</button>
               <div class="respuesta" id="respuesta"></div>
@@ -240,7 +240,7 @@ if(isset($_SESSION['mensaje'])){
                     <small style="color:red; display:none;" id="validate_create_categoria">*Este campo es requerido.</small>
                   </div>
 
-            <div class="modal-footer justify-content-between">
+            <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
               <button type="button" class="btn btn-primary" id="btn_create">Confirmar</button>
               <div class="respuesta" id="respuesta"></div>

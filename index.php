@@ -121,7 +121,7 @@ Ver más <i class="fas fa-arrow-circle-right"></i>
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
     <div class="p-3">
-      <h5>Title</h5>
+      <h5>Proximamente</h5>
       <p>Sidebar content</p>
     </div>
   </aside>

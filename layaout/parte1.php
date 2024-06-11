@@ -323,12 +323,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <p>Listado de Proveedores</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="<?php echo $url; ?>proveedores/create.php" class="nav-link acitve wp-admin-option">
-                  <i class="nav-icon fas fa-th"></i>
-                  <p>Creación de Proveedor</p>
-                </a>
-              </li>
             </ul>
           </li>
 
