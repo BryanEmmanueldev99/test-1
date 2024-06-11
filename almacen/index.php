@@ -156,7 +156,7 @@ if(isset($_SESSION['mensaje'])){
                 "infoFiltered": "(Filtrado de _MAX_ total Productos)",
                 "infoPostFix": "",
                 "thousands": ",",
-                "lengthMenu": "Mostrar _MENU_ Productos",
+                "lengthMenu": "Mostrar _MENU_ Generar Reportes",
                 "loadingRecords": "Cargando...",
                 "processing": "Procesando...",
                 "search": "Buscador:",

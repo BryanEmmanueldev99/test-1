@@ -130,7 +130,7 @@ if(isset($_SESSION['mensaje'])){
                 "infoFiltered": "(Filtrado de _MAX_ total Roles)",
                 "infoPostFix": "",
                 "thousands": ",",
-                "lengthMenu": "Mostrar _MENU_ Roles",
+                "lengthMenu": "Mostrar _MENU_ Generar Reportes",
                 "loadingRecords": "Cargando...",
                 "processing": "Procesando...",
                 "search": "Buscador:",

@@ -99,7 +99,7 @@ if(isset($_SESSION['mensaje'])){
                       <a href="<?= $url; ?>proveedores/update.php?id=<?php echo $id_proveedor_DAO; ?>" class="btn btn-primary btn-sm">
                         <i class="fa fa-pencil-alt"></i> Editar
                       </a>
-                      <a href="<?= $url; ?>proveedores/delete.php?id=<?php echo $id_proveedor_DAO; ?>" class="btn btn-primary btn-sm">
+                      <a id="#btn-delete-proveedor" href="<?= $url; ?>proveedores/delete.php?id=<?php echo $id_proveedor_DAO; ?>" class="btn btn-primary btn-sm">
                         <i class="fa fa-trash-alt"></i> Borrar
                       </a>
                     </div>
@@ -152,7 +152,7 @@ include('../layaout/parte2.php');
       "infoFiltered": "(Filtrado de _MAX_ total Proveedores)",
       "infoPostFix": "",
       "thousands": ",",
-      "lengthMenu": "Mostrar _MENU_ Proveedores",
+      "lengthMenu": "Mostrar _MENU_ Generar Reportes",
       "loadingRecords": "Cargando...",
       "processing": "Procesando...",
       "search": "Buscador:",
@@ -254,7 +254,6 @@ include('../layaout/parte2.php');
   <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-
 
 
 <script>

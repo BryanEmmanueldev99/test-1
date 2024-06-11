@@ -197,7 +197,7 @@ if(isset($_SESSION['mensaje'])){
                 "infoFiltered": "(Filtrado de _MAX_ total Categorías)",
                 "infoPostFix": "",
                 "thousands": ",",
-                "lengthMenu": "Mostrar _MENU_ Categorías",
+                "lengthMenu": "Mostrar _MENU_ Generar Reportes",
                 "loadingRecords": "Cargando...",
                 "processing": "Procesando...",
                 "search": "Buscador:",

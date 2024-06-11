@@ -39,7 +39,7 @@ include('../layaout/sesion.php');
           </div>
 
 
-          <form action="../app/controllers/proveedores/delete.php" method="POST">
+          <form class="shadow" action="../app/controllers/proveedores/delete.php" method="POST">
             <div class="card-body">
             <input type="text" name="id_proveedor" value="<?= $proveedor_DAO['id_proveedor']; ?>" hidden>
                         <div class="row">

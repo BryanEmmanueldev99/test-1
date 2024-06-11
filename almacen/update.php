@@ -34,7 +34,7 @@ include('../layaout/parte1.php');
   <div class="content">
     <div class="container-fluid">
 
-      <div class="row-6 col-6 mx-auto">
+      <div class="w-75 mx-auto">
         <div class="card card-primary">
           <div class="card-header">
             <h3 class="card-title">Llene los datos con cuidado</h3>
@@ -42,109 +42,145 @@ include('../layaout/parte1.php');
 
 
           <form class="shadow" action="../app/controllers/almacen/update.php" method="POST" enctype="multipart/form-data">
-            <input type="text" name="id_producto" id="id_producto" class="form-control" 
-            value="<?= $producto_DAO['id_producto']; ?>" hidden>
+            <input type="text" name="id_producto" id="id_producto" class="form-control" value="<?= $producto_DAO['id_producto']; ?>" hidden>
             <div class="card-body">
 
-              <div class="form-group">
-                <label for="codigo">SKU:</label>
-                <input type="text" name="codigo" id="codigo" class="form-control" value="<?= $producto_DAO['codigo']; ?>" disabled>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label for="codigo">SKU:</label>
+                    <input type="text" name="codigo" id="codigo" class="form-control" value="<?= $producto_DAO['codigo']; ?>" disabled>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label for="nombre">Nombre del producto:</label>
+                    <input type="text" name="nombre" class="form-control" id="nombre" value="<?= $producto_DAO['nombre']; ?>" required>
+                  </div>
+                </div>
+                <!--fin de la fila-->
               </div>
 
-              <div class="form-group mb-3">
-                <label for="nombre">Nombre del producto:</label>
-                <input type="text" name="nombre" class="form-control" id="nombre" value="<?= $producto_DAO['nombre']; ?>" required>
-              </div>
 
               <div class="form-group mb-3">
                 <label for="descripcion">Descripción del producto:</label>
                 <textarea name="descripcion" class="form-control" id="descripcion"><?= $producto_DAO['descripcion']; ?></textarea>
               </div>
 
-              <div class="form-group mb-3">
-                <label for="id_categoria">Categoría:</label>
-                <select class="form-control" name="id_categoria" id="id_categoria">
-                  <?php foreach ($categorias_info as $categoria) {
-                    $nombre_categoria_tabla = $categoria['nombre_categoria'];
-                    $id_categoria = $categoria['id_categoria'];
-                  ?>
-                    <option value="<?= $id_categoria; ?>" <?php if ($nombre_categoria_tabla == $show_categoria) { ?> selected="selected" <?php } ?>>
-                      <?= $nombre_categoria_tabla; ?>
-                    </option>
-                  <?php } ?>
-                </select>
 
 
-              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label for="stock">Stock:</label>
+                    <input type="number" name="stock" class="form-control" id="stock" value="<?= $producto_DAO['stock']; ?>" required>
+                  </div>
+                </div>
 
-              <div class="form-group mb-3">
-                <label for="stock">Stock:</label>
-                <input type="number" name="stock" class="form-control" id="stock" value="<?= $producto_DAO['stock']; ?>" required>
-              </div>
-
-              <div class="form-group mb-3">
-                <label for="stock_minimo">Stock minimo:</label>
-                <input type="number" name="stock_minimo" class="form-control" id="stock_minimo" value="<?= $producto_DAO['stock_minimo']; ?>">
-              </div>
-
-              <div class="form-group mb-3">
-                <label for="stock_maximo">Stock máximo:</label>
-                <input type="number" name="stock_maximo" class="form-control" id="stock_maximo" value="<?= $producto_DAO['stock_maximo']; ?>">
-              </div>
-
-              <div class="form-group mb-3">
-                <label for="precio_compra">Precio compra:</label>
-                <input type="number" name="precio_compra" class="form-control" id="precio_compra" value="<?= $producto_DAO['precio_compra']; ?>" required>
-              </div>
-
-              <div class="form-group mb-3">
-                <label for="precio_venta">Precio venta:</label>
-                <input type="number" name="precio_venta" class="form-control" id="precio_venta" value="<?= $producto_DAO['precio_venta']; ?>" required>
-              </div>
-
-              <div class="form-group mb-3">
-                <label for="fecha_ingreso">Fecha de ingreso:</label>
-                <input type="date" name="fecha_ingreso" class="form-control" value="<?= $producto_DAO['fecha_ingreso']; ?>" id="fecha_ingreso" required>
-              </div>
-
-              <div class="form-group mb-3">
-                <label for="precio_venta">Usuario</label>
-                <input type="text" class="form-control" value="<?= $sesion_email; ?>" disabled>
-                <input type="text" name="id_usuario" class="form-control" id="id_usuario" value="<?= $id_usuario; ?>" hidden>
-              </div>
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label for="stock_minimo">Stock minimo:</label>
+                    <input type="number" name="stock_minimo" class="form-control" id="stock_minimo" value="<?= $producto_DAO['stock_minimo']; ?>">
+                  </div>
+                </div>
 
 
-              <div class="form-group mb-3">
-                <label for="imagen">Cargar una foto del producto</label>
-                <input type="file" name="imagen" id="file" class="form-control" id="imagen">
-                <input type="text" name="imagen_ruta" id="imagen_ruta" class="form-control" 
-                   value="<?= $producto_DAO['imagen']; ?>" hidden>
-                <output id="list" style="text-align: center;">
-                   <img class="img-fluid" width="50%" src="<?= $url.'almacen/wc_img_productos/'.$producto_DAO['imagen']; ?>" alt="<?= $producto_DAO['imagen']; ?>">
-                </output>
-                <script>
-                  function archivo(evt) {
-                    var files = evt.target.files; // FileList object
-                    // Obtenemos la imagen del campo "file".
-                    for (var i = 0, f; f = files[i]; i++) {
-                      //Solo admitimos imágenes.
-                      if (!f.type.match('image.*')) {
-                        continue;
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label for="stock_maximo">Stock máximo:</label>
+                    <input type="number" name="stock_maximo" class="form-control" id="stock_maximo" value="<?= $producto_DAO['stock_maximo']; ?>">
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label for="precio_compra">Precio compra:</label>
+                    <input type="number" name="precio_compra" class="form-control" id="precio_compra" value="<?= $producto_DAO['precio_compra']; ?>" required>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label for="precio_venta">Precio venta:</label>
+                    <input type="number" name="precio_venta" class="form-control" id="precio_venta" value="<?= $producto_DAO['precio_venta']; ?>" required>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label for="precio_venta">Precio venta:</label>
+                    <input type="number" name="precio_venta" class="form-control" id="precio_venta" value="<?= $producto_DAO['precio_venta']; ?>" required>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label for="fecha_ingreso">Fecha de ingreso:</label>
+                    <input type="date" name="fecha_ingreso" class="form-control" value="<?= $producto_DAO['fecha_ingreso']; ?>" id="fecha_ingreso" required>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label for="precio_venta">Usuario</label>
+                    <input type="text" class="form-control" value="<?= $sesion_email; ?>" disabled>
+                    <input type="text" name="id_usuario" class="form-control" id="id_usuario" value="<?= $id_usuario; ?>" hidden>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label for="id_categoria">Categoría:</label>
+                    <select class="form-control" name="id_categoria" id="id_categoria">
+                      <?php foreach ($categorias_info as $categoria) {
+                        $nombre_categoria_tabla = $categoria['nombre_categoria'];
+                        $id_categoria = $categoria['id_categoria'];
+                      ?>
+                        <option value="<?= $id_categoria; ?>" <?php if ($nombre_categoria_tabla == $show_categoria) { ?> selected="selected" <?php } ?>>
+                          <?= $nombre_categoria_tabla; ?>
+                        </option>
+                      <?php } ?>
+                    </select>
+
+
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label for="imagen">Cargar una foto del producto</label>
+                    <input type="file" name="imagen" id="file" class="form-control" id="imagen">
+                    <input type="text" name="imagen_ruta" id="imagen_ruta" class="form-control" value="<?= $producto_DAO['imagen']; ?>" hidden>
+                    <output id="list" style="text-align: center;">
+                      <img class="img-fluid" width="100%" src="<?= $url . 'almacen/wc_img_productos/' . $producto_DAO['imagen']; ?>" alt="<?= $producto_DAO['imagen']; ?>">
+                    </output>
+                    <script>
+                      function archivo(evt) {
+                        var files = evt.target.files; // FileList object
+                        // Obtenemos la imagen del campo "file".
+                        for (var i = 0, f; f = files[i]; i++) {
+                          //Solo admitimos imágenes.
+                          if (!f.type.match('image.*')) {
+                            continue;
+                          }
+                          var reader = new FileReader();
+                          reader.onload = (function(theFile) {
+                            return function(e) {
+                              // Insertamos la imagen
+                              document.getElementById("list").innerHTML = ['<img class="thumb thumbnail mt-2" src="', e.target.result, '" width="50%" title="', escape(theFile.name), '"/>'].join('');
+                            };
+                          })(f);
+                          reader.readAsDataURL(f);
+                        }
                       }
-                      var reader = new FileReader();
-                      reader.onload = (function(theFile) {
-                        return function(e) {
-                          // Insertamos la imagen
-                          document.getElementById("list").innerHTML = ['<img class="thumb thumbnail mt-2" src="', e.target.result, '" width="50%" title="', escape(theFile.name), '"/>'].join('');
-                        };
-                      })(f);
-                      reader.readAsDataURL(f);
-                    }
-                  }
-                  document.getElementById('file').addEventListener('change', archivo, false);
-                </script>
-              </div>
+                      document.getElementById('file').addEventListener('change', archivo, false);
+                    </script>
+                  </div>
+                </div>
 
+                <!--fin de fila-->
+              </div>
             </div>
 
             <div class="card-footer">

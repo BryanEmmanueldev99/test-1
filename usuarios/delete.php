@@ -42,7 +42,7 @@ include('../layaout/sesion.php');
           </div>
 
 
-          <form action="../app/controllers/usuarios/delete-usario-dao.php" method="POST">
+          <form class="shadow" action="../app/controllers/usuarios/delete-usario-dao.php" method="POST">
             <div class="card-body">
               <div class="form-group">
 

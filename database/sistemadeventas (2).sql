@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-06-2024 a las 01:46:58
+-- Tiempo de generación: 12-06-2024 a las 01:53:03
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.0.25
 
@@ -45,6 +45,13 @@ CREATE TABLE `tb_almacen` (
   `fyh_actualizacion` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `tb_almacen`
+--
+
+INSERT INTO `tb_almacen` (`id_producto`, `codigo`, `nombre`, `descripcion`, `id_categoria`, `id_usuario`, `stock`, `stock_minimo`, `stock_maximo`, `precio_compra`, `precio_venta`, `fecha_ingreso`, `imagen`, `fyh_creacion`, `fyh_actualizacion`) VALUES
+(1, 'p-00001', 'Zucaritas Normales', 'nnnnnnnnnnnnnnn', 27, 2, 50, 40, 0, '250', '500', '2024-06-11', '2024-06-11-06-24-42__zucaritas.webp', '2024-06-11 06:23:45', '2024-06-11 06:37:55');
+
 -- --------------------------------------------------------
 
 --
@@ -71,7 +78,9 @@ INSERT INTO `tb_categoria` (`id_categoria`, `nombre_categoria`, `fyh_creacion`, 
 (11, 'Medicamento Patente', '2024-06-05 11:11:11', '0000-00-00 00:00:00'),
 (12, 'Dolor y malestar', '2024-06-05 12:30:30', '2024-06-05 12:35:26'),
 (24, 'Cuidado personal', '2024-06-06 06:30:18', '2024-06-07 01:33:30'),
-(25, 'Jarabes', '2024-06-06 06:31:59', '0000-00-00 00:00:00');
+(25, 'Jarabes', '2024-06-06 06:31:59', '0000-00-00 00:00:00'),
+(26, 'Curitas', '2024-06-11 06:21:53', '0000-00-00 00:00:00'),
+(27, 'Abarrotes', '2024-06-11 06:22:48', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -116,7 +125,7 @@ CREATE TABLE `tb_proveedores` (
 --
 
 INSERT INTO `tb_proveedores` (`id_proveedor`, `nombre_proveedor`, `celular`, `telefono`, `empresa`, `email_proveedor`, `direccion`, `fyh_creacion`, `fyh_actualizacion`) VALUES
-(1, 'PHARMA MEDIC', '5568701216', '523318841010', 'Shoping medic', 'phamamedic@gmail.com', 'Calle las juntas, CDMX C.P. 1334', '2024-06-11 01:20:54', '2024-06-11 01:20:54');
+(3, 'Fernan Laboratorios chopo', '50202090', '3318841210', 'lab@grupodjes.com', 'Metro Guelatao Ejército de Oriente Indeco II Issste Ciudad de México CDMX México\r\nEjército de Oriente Indeco II Issste', 'Laboratorios chopo', '2024-06-11 02:33:18', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -219,13 +228,13 @@ ALTER TABLE `tb_usuarios`
 -- AUTO_INCREMENT de la tabla `tb_almacen`
 --
 ALTER TABLE `tb_almacen`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_categoria`
 --
 ALTER TABLE `tb_categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_compras`
@@ -237,7 +246,7 @@ ALTER TABLE `tb_compras`
 -- AUTO_INCREMENT de la tabla `tb_proveedores`
 --
 ALTER TABLE `tb_proveedores`
-  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_roles`
@@ -249,7 +258,7 @@ ALTER TABLE `tb_roles`
 -- AUTO_INCREMENT de la tabla `tb_usuarios`
 --
 ALTER TABLE `tb_usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
