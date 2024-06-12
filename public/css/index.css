@@ -122,3 +122,18 @@ form.shadow {
     background-color: #ffffff;
 }
 
+/*ICONOS DE LOS MODULOS*/
+img.img-fluid.modulos-iconos {
+    width: 100px;
+}
+img.img-fluid.modulos-iconos:hover {
+    transform: translate(0px, -3px);
+}
+.modulos-acceso:hover > .modulos-iconos{
+    transform: translate(0px, -3px);
+}
+
+/*chat whatsapp proveedor*/
+.icono-proveedor-ws{
+    width: 20px;
+}

@@ -99,7 +99,7 @@ include('../layaout/sesion.php');
                         </div>
             <div class="card-footer">
               <button type="submit" class="btn btn-danger">Confirmar</button>
-              <a href="<?php echo $url;  ?>usuarios" class="btn btn-default">Regresar</a>
+              <a href="<?php echo $url;  ?>proveedores" class="btn btn-default">Regresar</a>
             </div>
           </form>
         </div>

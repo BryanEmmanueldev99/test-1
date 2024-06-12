@@ -19,7 +19,7 @@
   <!--Sweet alert-->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background-color: ghostwhite;">
 <div class="login-box">
 
 
@@ -42,16 +42,19 @@ if(isset($_SESSION['mensaje_login'])){
 ?>     
 
   <!-- /.login-logo -->
-  <div class="card card-outline card-primary">
+  <div class="card card-outline card-primary shadow">
     <div class="card-header text-center">
-      <a href="../../index2.html" class="h1 fs-6"><b>Iniciar</b>  Sesión</a>
+      <h2>Iniciar sesión</h2>
+      <picture>
+          <img class="img-fluid" width="100px" src="<?= $url; ?>/public/img/login-default.png" alt="login">
+      </picture>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Introduce tus credenciales</p>
 
       <form action="../app/controllers/login/ingreso.php" method="post">
         <div class="input-group mb-3">
-          <input type="email" name="email" class="form-control" placeholder="Email">
+          <input type="email" name="email" class="form-control" placeholder="Correo eléctronico">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -59,7 +62,7 @@ if(isset($_SESSION['mensaje_login'])){
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" name="password_user" class="form-control" placeholder="Password">
+          <input type="password" name="password_user" class="form-control" placeholder="Contraseña">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>

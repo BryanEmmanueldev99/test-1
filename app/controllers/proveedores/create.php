@@ -11,7 +11,7 @@ $empresa = $_POST['empresa'];
 
 
 $sql = $pdo->prepare("INSERT INTO tb_proveedores(nombre_proveedor, celular, telefono, empresa, email_proveedor, direccion, fyh_creacion) 
-VALUES(:nombre_proveedor,:celular,:telefono,:email_proveedor,:direccion,:empresa,:fyh_creacion)");
+VALUES(:nombre_proveedor,:celular,:telefono,:empresa,:email_proveedor,:direccion,:fyh_creacion)");
 
 $sql->bindParam('nombre_proveedor', $nombre_proveedor);
 $sql->bindParam('celular', $celular);
