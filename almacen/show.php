@@ -1,9 +1,12 @@
 <?php
+//error_reporting(0);
+
 include('../app/config.php');
 include('../app/controllers/almacen/cargar_producto.php');
 include('../app/controllers/categorias/listado_de_categorias.php');
 include('../layaout/sesion.php');
 include('../layaout/parte1.php');
+
 ?>
 
 

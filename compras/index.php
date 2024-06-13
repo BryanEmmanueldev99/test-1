@@ -58,9 +58,9 @@ if(isset($_SESSION['mensaje'])){
         <!-- /.card-header -->
         <div class="card-body shadow-sm rounded">
           <div class="btn-add mb-4">
-            <button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#modal-create-compras">
+            <a href="<?= $url; ?>compras/create.php" class="btn btn-primary">
               <i class="fa fa-plus"></i> Agregar Compra
-            </button>
+           </a>
           </div>
           <table id="example1" class="table table-bordered table-striped text-center table-sm">
             <thead>
@@ -88,8 +88,8 @@ if(isset($_SESSION['mensaje'])){
                   <td><?= $id_front_end = $id_front_end + 1; ?></td>
                   <td><?= $compra_DAO['nro_compra']; ?></td>
                   <td>
-                    <a href="<?= $url; ?>/almacen/show.php?id=<?= $compra_DAO['id_producto']; ?>" class="btn">
-                      <?= $compra_DAO['id_producto']; ?>
+                    <a href="<?= $url; ?>almacen/show.php?id=<?= $compra_DAO['id_producto']; ?>" class="btn">
+                      <?= $compra_DAO['nombre_producto']; ?>
                     </a>
                   </td>
                   <td><?= $compra_DAO['fecha_compra']; ?></td>
@@ -103,7 +103,7 @@ if(isset($_SESSION['mensaje'])){
                       <a href="<?= $url; ?>proveedores/update.php?id=<?php echo $id_proveedor_DAO; ?>" class="btn btn-primary btn-sm">
                         <i class="fa fa-pencil-alt"></i> Editar
                       </a>
-                      <a id="#btn-delete-proveedor" href="<?= $url; ?>proveedores/delete.php?id=<?php echo $id_proveedor_DAO; ?>" class="btn btn-primary btn-sm">
+                      <a href="<?= $url; ?>proveedores/delete.php?id=<?php echo $id_proveedor_DAO; ?>" class="btn btn-primary btn-sm">
                         <i class="fa fa-trash-alt"></i> Borrar
                       </a>
                     </div>
@@ -175,89 +175,6 @@ include('../layaout/parte2.php');
   }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 </script>
 
-<!--modal para registrar compras-->
-<div class="modal fade" id="modal-create-compras">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Crear nuevo proveedor</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="../app/controllers/proveedores/create.php" method="post">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="mb-3">
-                <label for="" class="form-label">Nombre del proveedor:</label><b style="color: red;" class="red">*</b>
-
-                <input type="text" class="form-control" name="nombre_proveedor" id="nombre_proveedor" placeholder="Agrega el nombre del proveedor" required />
-                <small style="color:red; display:none;" id="validate_create_proveedor">*Este campo es requerido.</small>
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="mb-3">
-                <label for="" class="form-label">Celular:</label><b style="color: red;" class="red">*</b>
-                <input type="number" class="form-control" name="celular" id="celular" placeholder="Número de celular" required />
-                <small style="color:red; display:none;" id="validate_create_celular">*Este campo es requerido.</small>
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="mb-3">
-                <label for="" class="form-label">Telefono:</label> <b> (Opcional)</b>
-
-                <input type="number" class="form-control" name="telefono" id="telefono" placeholder="Número telefónico" />
-              </div>
-            </div>
-
-
-            <div class="col-md-6">
-              <div class="mb-3">
-                <label for="" class="form-label">Correo electronico:</label> <b> (Opcional)</b>
-
-                <input type="email" class="form-control" name="email_proveedor" id="email_proveedor" placeholder="Correo electrónico" />
-              </div>
-            </div>
-
-
-            <div class="col-md-6">
-              <div class="mb-3">
-                <label for="" class="form-label">Nombre de la empresa:</label><b style="color:red;">*</b>
-
-                <input type="text" class="form-control" name="empresa" id="empresa" placeholder="Empresa" required />
-                <small style="color:red; display:none;" id="validate_create_empresa">*Este campo es requerido.</small>
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="mb-3">
-                <label for="" class="form-label">Dirección:</label><b style="color:red;">*</b>
-
-                <textarea class="form-control" name="direccion" id="direccion" placeholder="Dirección del proveedor" required></textarea>
-
-                <small style="color:red; display:none;" id="validate_create_direccion">*Este campo es requerido.</small>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" id="btn_create_proveedores">Confirmar</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-          </div>
-
-          <div class="respuesta" id="respuesta"></div>
-        </form>
-      </div>
-    </div>
-    <!-- /.modal-content -->
-  </div>
-  <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
 
 <!--modal producto-->
 <div class="modal fade" id="productosshow<?= $compra_DAO['id_producto']; ?>">
@@ -291,7 +208,7 @@ include('../layaout/parte2.php');
 
 
 <script>
-  $('#btn_create_proveedores').click(function() {
+  $('#btn_create_compras').click(function() {
 
     var nombre_proveedor = $('#nombre_proveedor').val();
     var celular = $('#celular').val();

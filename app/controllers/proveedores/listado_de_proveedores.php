@@ -7,4 +7,5 @@ $total_proveedores = $query_proveedores->rowCount();
 //foreach
 $proveedores_info = $query_proveedores->fetchAll(PDO::FETCH_ASSOC);
 
+
 ?>

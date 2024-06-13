@@ -61,7 +61,7 @@ if(isset($_SESSION['mensaje'])){
         <!--new data table-->
         <!-- /.card-header -->
         <div class="card-body shadow-sm rounded almacen table-responsive">
-          <a href="<?= $url; ?>/almacen/create.php" class="btn btn-primary">
+          <a href="<?= $url; ?>almacen/create.php" class="btn btn-primary">
             <i class="fa fa-plus"></i> Agregar nuevo producto
           </a>
           <table id="almacentb" class="table table-bordered table-striped table-responsive table-sm text-center">

@@ -57,7 +57,7 @@ if(isset($_SESSION['mensaje'])){
         <!--new data table-->
         <!-- /.card-header -->
         <div class="card-body shadow-sm rounded">
-          <a href="<?= $url; ?>/usuarios/create.php" class="btn btn-primary">
+          <a href="<?= $url; ?>usuarios/create.php" class="btn btn-primary">
             <i class="fa fa-plus"></i> Agregar Usuario
           </a>
           <table id="example1" class="table table-bordered table-striped text-center">
