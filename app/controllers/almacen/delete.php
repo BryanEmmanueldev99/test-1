@@ -1,7 +1,7 @@
 <?php 
 include('../../config.php');
 
-$id_producto = $_POST['id_producto'];
+$id_producto = $_GET['id'];
 
 $sql = $pdo->prepare("DELETE FROM tb_almacen WHERE id_producto=:id_producto");
 $sql->bindParam('id_producto', $id_producto);

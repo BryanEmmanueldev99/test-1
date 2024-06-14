@@ -137,3 +137,20 @@ img.img-fluid.modulos-iconos:hover {
 .icono-proveedor-ws{
     width: 20px;
 }
+
+/*ajustes para la primer fila de los campos*/
+.camposfilauno {
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    text-align: center;
+}
+
+
+
+/***medias query***/
+@media screen and (max-width: 760px) {
+    .camposfilauno {
+        display: block;
+    }
+  }
