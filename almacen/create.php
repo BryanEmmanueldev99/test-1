@@ -6,22 +6,7 @@ include('../app/controllers/categorias/listado_de_categorias.php');
 ?>
 
 
-<?php include('../layaout/parte1.php');
-/*
-if(isset($_SESSION['mensaje'])){
-  $respuesta = $_SESSION['mensaje']; ?>
-
-
-
-<script>
-    Swal.fire({
-  title: "Error",
-  text: "<?php echo $respuesta; ?>",
-  icon: "error"
-});
-</script>
-
-<?php } unset($_SESSION['mensaje']); */ ?>
+<?php include('../layaout/parte1.php'); ?>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -114,7 +99,8 @@ if(isset($_SESSION['mensaje'])){
                   <div class="form-group mb-3">
                     <label for="codigo">SKU:</label>
                     <?php
-                    function ceros($numero)
+
+                   /* function ceros($numero)
                     {
                       $len = 0;
                       $cantidad_ceros = 5;
@@ -125,15 +111,14 @@ if(isset($_SESSION['mensaje'])){
                         $aux = "0" . $aux;
                       }
                       return $aux;
-                    }
+                    }*/
 
                     $contador_id_producto = 1;
                     foreach ($productos_info as $producto) {
                       $contador_id_producto = $contador_id_producto + 1;
                     }
                     ?>
-                    <input type="text" class="form-control" value="<?php echo "p-" . ceros($contador_id_producto); ?>" disabled>
-                    <input type="text" name="codigo" id="codigo" class="form-control" value="<?php echo "p-" . ceros($contador_id_producto); ?>" hidden>
+                    <input type="text" name="codigo" id="codigo" class="form-control">
                   </div>
                 </div>
                 <div class="col-md-6">

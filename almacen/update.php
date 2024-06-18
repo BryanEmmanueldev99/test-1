@@ -47,23 +47,22 @@ include('../layaout/parte1.php');
 
               <!--INICIO FILA 1 -->
               <div class="row">
-                <div class="col-md-12 camposfilauno">
-                  <div class="form-group mb-3">
+                
+                  <div class="col-md-3 form-group mb-3">
                     <label for="codigo">SKU:</label>
-                    <input type="text" name="codigo" id="codigo" class="form-control" value="<?= $producto_DAO['codigo']; ?>">
+                    <input type="text" disabled class="form-control" value="<?= $producto_DAO['codigo']; ?>">
                   </div>
 
-                  <div class="form-group mb-3">
-                    <label for="nombre">Nombre del producto:</label>
-                    <input type="text" name="nombre" class="form-control" id="nombre" value="<?= $producto_DAO['nombre']; ?>" required>
-                  </div>
-
-
-                  <div class="form-group mb-3">
+                  <div class="col-md-4 form-group mb-3">
                     <label for="fecha_ingreso">Fecha de ingreso:</label>
                     <input type="date" name="fecha_ingreso" class="form-control" value="<?= $producto_DAO['fecha_ingreso']; ?>" id="fecha_ingreso" required>
                   </div>
-                </div>
+
+                  <div class="col-md-5 form-group mb-3">
+                    <label for="nombre">Nombre del producto:</label>
+                    <input type="text" name="nombre" class="form-control" id="nombre" value="<?= $producto_DAO['nombre']; ?>" required>
+                  </div>
+                
                 <!--fin de la fila-->
               </div>
 
@@ -97,28 +96,19 @@ include('../layaout/parte1.php');
 
               <!--FILA 3 INICIO-->
               <div class="row">
-                <div class="col-md-6">
+              <div class="col-md-3">
                   <div class="form-group mb-3">
                     <label for="precio_compra">Precio compra:</label>
                     <input type="number" name="precio_compra" class="form-control" id="precio_compra" value="<?= $producto_DAO['precio_compra']; ?>" required>
                   </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-3">
                   <div class="form-group mb-3">
                     <label for="precio_venta">Precio venta:</label>
                     <input type="number" name="precio_venta" class="form-control" id="precio_venta" value="<?= $producto_DAO['precio_venta']; ?>" required>
                   </div>
                 </div>
-
-                <div class="col-md-6">
-                  <div class="form-group mb-3">
-                    <label for="precio_venta">Precio venta:</label>
-                    <input type="number" name="precio_venta" class="form-control" id="precio_venta" value="<?= $producto_DAO['precio_venta']; ?>" required>
-                  </div>
-                </div>
-
-
 
                 <div class="col-md-6">
                   <div class="form-group mb-3">
@@ -132,27 +122,25 @@ include('../layaout/parte1.php');
 
               <!--FILA 4 INICIO-->
               <div class="row">
-                <div class="col-md-12 camposfilauno">
+                
 
-                  <div class="form-group mb-3">
+                  <div class="col-md-3 form-group mb-3">
                     <label for="stock">Stock:</label>
                     <input type="number" name="stock" class="form-control" id="stock" value="<?= $producto_DAO['stock']; ?>" required>
                   </div>
 
 
-                  <div class="form-group mb-3">
+                  <div class="col-md-3 form-group mb-3">
                     <label for="stock_minimo">Stock minimo:</label>
                     <input type="number" name="stock_minimo" class="form-control" id="stock_minimo" value="<?= $producto_DAO['stock_minimo']; ?>">
                   </div>
 
-
-
-
-                  <div class="form-group mb-3">
+                  
+                  <div class="col-md-6 form-group mb-3">
                     <label for="stock_maximo">Stock máximo:</label>
                     <input type="number" name="stock_maximo" class="form-control" id="stock_maximo" value="<?= $producto_DAO['stock_maximo']; ?>">
                   </div>
-                </div>
+                
                 <!--fin de fila-->
               </div>
 

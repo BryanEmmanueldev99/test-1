@@ -1,7 +1,8 @@
 <?php 
 include('../../config.php');
 
-//$codigo = $_POST['codigo'];
+if(isset($_POST['id_producto']) && !empty($_POST['id_producto'])){
+     //$codigo = $_POST['codigo']; este YA NO SE DEBE ACTUALIZAR PORQUE ES UNICO
 $id_categoria = $_POST['id_categoria'];
 $nombre = $_POST['nombre'];
 $id_usuario = $_POST['id_usuario'];
@@ -61,10 +62,18 @@ if($sentencia->execute()){
     header('Location:'.$url.'almacen/');
 }else{
     session_start();
-    $_SESSION['mensaje'] = "Error no se pudo actualizar en la base de datos";
+    $_SESSION['mensaje'] = "No se pudo actualizar el producto.";
     $_SESSION['icono'] = "error";
     header('Location: '.$url.'almacen/update.php?id='.$id_producto);
 }
+
+}else{
+    session_start();
+    $_SESSION['mensaje'] = "No se pudo actualizar el producto.";
+    $_SESSION['icono'] = "error";
+    header('Location: '.$url.'almacen/');
+}
+
 
 ?>
 

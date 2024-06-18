@@ -6,6 +6,7 @@ include('../app/controllers/almacen/cargar_producto.php');
 include('../app/controllers/categorias/listado_de_categorias.php');
 include('../app/controllers/almacen/listado_de_productos.php');
 include('../app/controllers/proveedores/listado_de_proveedores.php');
+include('../app/controllers/compras/listado_de_compras.php');
 include('../layaout/sesion.php');
 include('../layaout/parte1.php');
 
@@ -198,15 +199,33 @@ include('../layaout/parte1.php');
         </div>
 
         <div class="col-md-3 container">
-            <div class="col-md-12">
-                <label for="">Nro. de compra</label>
-                <input class="form-control" type="number" name="" id="">
+             <div class="container mt-4 rounded pt-3 pb-3 p-1 shadow-sm bg-white">
+             <div class="col-md-12">
+                  <?php 
+                       
+                       $contador_num_compras = 1;
+                      foreach ($compras_datos as $compras_dato){
+                          $contador_num_compras = $contador_num_compras + 1;  
+                     } ?>
+                     <label for="">Nro. de compra</label>
+                     <input value="<?php echo $contador_num_compras; ?>" class="form-control" type="number" name="" id="">
             </div>
 
             <div class="col-md-12">
                 <label for="">Fecha de la compra</label>
                 <input class="form-control" type="date" name="" id="">
             </div>
+
+            <div class="col-md-12">
+                <label for="">Comprobante de la compra</label>
+                <input class="form-control" type="text" name="factura" id="factura">
+            </div>
+
+            <div class="col-md-12">
+                <label for="">Usuario</label>
+                <input class="form-control" type="text" name="factura" id="factura">
+            </div>
+             </div>
         </div>
     </div>
 
