@@ -16,6 +16,7 @@
 
         const stock = "<?php echo $producto['stock']; ?>";
         $('#stock').val(stock);
+        $('#stock_actual').val(stock);
 
         const stock_minimo = "<?php echo $producto['stock_minimo']; ?>";
         $('#stock_minimo').val(stock_minimo);
@@ -34,7 +35,7 @@
 
         const nombre_categoria = "<?php echo $producto['nombre_categoria']; ?>";
         $('#nombre_categoria').val(nombre_categoria);
-
+  
         const ruta_file_img = "<?php
                                 echo $url . 'almacen/wc_img_productos/'
                                     . $producto['imagen']; ?>";

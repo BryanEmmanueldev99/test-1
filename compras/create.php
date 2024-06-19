@@ -7,6 +7,7 @@ include('../app/controllers/categorias/listado_de_categorias.php');
 include('../app/controllers/almacen/listado_de_productos.php');
 include('../app/controllers/proveedores/listado_de_proveedores.php');
 include('../app/controllers/compras/listado_de_compras.php');
+include('../app/controllers/usuarios/listado_de_usuarios.php');
 include('../layaout/sesion.php');
 include('../layaout/parte1.php');
 
@@ -105,14 +106,14 @@ include('../layaout/parte1.php');
                                     <div class="col-md-6">
                                         <div class="form-group mb-3">
                                             <label for="precio_compra">Precio compra:</label>
-                                            <input type="number" name="precio_compra" class="form-control" id="precio_compra" disabled>
+                                            <input type="text" name="precio_compra" class="form-control" id="precio_compra" disabled>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group mb-3">
                                             <label for="precio_venta">Precio venta:</label>
-                                            <input type="number" name="precio_venta" class="form-control" id="precio_venta" disabled>
+                                            <input type="text" name="precio_venta" class="form-control" id="precio_venta" disabled>
                                         </div>
                                     </div>
                                     <!--fin de fila-->
@@ -217,13 +218,50 @@ include('../layaout/parte1.php');
             </div>
 
             <div class="col-md-12">
-                <label for="">Comprobante de la compra</label>
+                <label for="">Precio de la compra</label>
                 <input class="form-control" type="text" name="factura" id="factura">
             </div>
 
             <div class="col-md-12">
-                <label for="">Usuario</label>
+                <label for="">Comprobante de la compra</label>
                 <input class="form-control" type="text" name="factura" id="factura">
+            </div>
+
+        
+            <div class="row">
+            <div class="col-md-6 text-center">
+                <label for="">Stock actual</label>
+                <input style="background-color:#ecf7e7; color: #3b4e36;" class="form-control text-center" type="number" name="stock_actual" id="stock_actual" disabled>
+            </div>
+            <div class="col-md-6 text-center">
+                <label for="">Total de stock</label>
+                <input class="form-control text-center" type="number" name="stock_total" id="stock_total" disabled>
+            </div>
+            </div>
+
+            <div class="col-md-12 text-center">
+                <label for="">Cantidad de la compra</label>
+                <input class="form-control" type="number" name="cantidad_compra" id="cantidad_compra">
+                <script>
+                    $('#cantidad_compra').keyup( function () {
+                       const stock_actual = $('#stock_actual').val();
+                       const stock_compra = $('#cantidad_compra').val();
+
+                       const total_stock_compra = parseInt(stock_actual) + parseInt(stock_compra);
+                       $('#stock_total').val(total_stock_compra);
+                    });
+                </script>
+            </div>
+            
+
+            <div class="col-md-12">
+                <label for="">Usuario</label>
+                <select name="id_categoria" id="id_categoria" class="form-control" required>
+                        <?php foreach ($usuarios_info as $row_usuarios) { ?>
+                          <option value="<?php echo $row_usuarios['id_usuario']; ?>" >
+                           <?php echo $row_usuarios['nombres']; ?></option>
+                        <?php } ?>
+                </select>
             </div>
              </div>
         </div>

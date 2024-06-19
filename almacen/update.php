@@ -50,7 +50,7 @@ include('../layaout/parte1.php');
                 
                   <div class="col-md-3 form-group mb-3">
                     <label for="codigo">SKU:</label>
-                    <input type="text" disabled class="form-control" value="<?= $producto_DAO['codigo']; ?>">
+                    <input type="number" disabled class="form-control" value="<?= $producto_DAO['codigo']; ?>">
                   </div>
 
                   <div class="col-md-4 form-group mb-3">
@@ -99,14 +99,14 @@ include('../layaout/parte1.php');
               <div class="col-md-3">
                   <div class="form-group mb-3">
                     <label for="precio_compra">Precio compra:</label>
-                    <input type="number" name="precio_compra" class="form-control" id="precio_compra" value="<?= $producto_DAO['precio_compra']; ?>" required>
+                    <input type="text" name="precio_compra" class="form-control" id="precio_compra" value="<?= $producto_DAO['precio_compra']; ?>" required>
                   </div>
                 </div>
 
                 <div class="col-md-3">
                   <div class="form-group mb-3">
                     <label for="precio_venta">Precio venta:</label>
-                    <input type="number" name="precio_venta" class="form-control" id="precio_venta" value="<?= $producto_DAO['precio_venta']; ?>" required>
+                    <input type="text" name="precio_venta" class="form-control" id="precio_venta" value="<?= $producto_DAO['precio_venta']; ?>" required>
                   </div>
                 </div>
 

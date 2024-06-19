@@ -11,7 +11,7 @@
             <div class="modal-body">
                 <!-- /.card-header -->
                 <div class="card-body shadow rounded almacen table-responsive mb-5 mt-5">
-                    <table id="almacentb" class="table table-bordered table-striped table-responsive text-center">
+                    <table id="almacentb" class="table table-bordered table-striped table-sm text-center">
                         <thead>
                             <tr>
                                 <th style="width: 30px">Nro</th>

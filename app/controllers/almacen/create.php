@@ -31,7 +31,6 @@ if ($num_rows>0){
 
   }else{
       
-
     $sql = $pdo->prepare("INSERT INTO tb_almacen(codigo, nombre, descripcion, id_categoria, stock, stock_minimo, stock_maximo, precio_compra, precio_venta, fecha_ingreso, id_usuario, imagen, fyh_creacion) 
     VALUES(:codigo,:nombre,:descripcion,:id_categoria,:stock,:stock_minimo,:stock_maximo,:precio_compra,:precio_venta,:fecha_ingreso,:id_usuario,:imagen,:fyh_creacion)");
     
