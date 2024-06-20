@@ -1,6 +1,9 @@
 <script>
     $('#btn_selecionar_proveedor<?php echo $proveedor['id_proveedor']; ?>').click(function() {
 
+        const id_proveedor = "<?php echo $proveedor['id_proveedor']; ?>"
+        $('#id_proveedor').val(id_proveedor);
+
         const nombre_proveedor = "<?php echo $proveedor['nombre_proveedor']; ?>"
         $('#nombre_proveedor').val(nombre_proveedor);
 

@@ -1,12 +1,11 @@
 <script>
     $('#btn_selecionar<?php echo $id_producto_DAO; ?>').click(function() {
 
-        const codigo = "<?php echo $producto['codigo']; ?>";
-        $('#codigo').val(codigo);
-
         const id_producto = "<?php echo $producto['id_producto']; ?>";
         $('#id_producto').val(id_producto);
 
+        const codigo = "<?php echo $producto['codigo']; ?>";
+        $('#codigo').val(codigo);
 
         const nombre = "<?php echo $producto['nombre']; ?>";
         $('#nombre').val(nombre);
@@ -24,8 +23,8 @@
         const stock_maximo = "<?php echo $producto['stock_maximo']; ?>";
         $('#stock_maximo').val(stock_maximo);
 
-        const precio_compra = "<?php echo $producto['precio_compra']; ?>";
-        $('#precio_compra').val(precio_compra);
+        const compra_precio = "<?php echo $producto['precio_compra']; ?>";
+        $('#compra_precio').val(compra_precio);
 
         const precio_venta = "<?php echo $producto['precio_venta']; ?>";
         $('#precio_venta').val(precio_venta);

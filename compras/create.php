@@ -63,6 +63,7 @@ include('../layaout/parte1.php');
                                         <div class="form-group mb-3">
                                             <label for="codigo">SKU:</label>
                                             <input disabled type="text" name="codigo" id="codigo" class="form-control">
+                                            <input type="text" id="id_producto" name="id_producto" hidden>
                                         </div>
                                     </div>
 
@@ -105,8 +106,8 @@ include('../layaout/parte1.php');
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group mb-3">
-                                            <label for="precio_compra">Precio compra:</label>
-                                            <input type="text" name="precio_compra" class="form-control" id="precio_compra" disabled>
+                                            <label for="">Precio compra:</label>
+                                            <input type="text" name="compra_precio" class="form-control" id="compra_precio" disabled>
                                         </div>
                                     </div>
 
@@ -160,6 +161,7 @@ include('../layaout/parte1.php');
 
                                 <div class="row">
                                     <div class="col-md-6">
+                                        <input type="text" id="id_proveedor" hidden>
                                         <label for="">Proveedor</label>
                                         <input name="nombre_proveedor" id="nombre_proveedor" class="form-control" disabled type="text">
                                     </div>
@@ -176,7 +178,7 @@ include('../layaout/parte1.php');
                                 </div>
 
                                 <div class="row mb-2">
-                                <div class="col-md-6">
+                                    <div class="col-md-6">
                                         <label for="">Empresa</label>
                                         <input class="form-control" name="empresa" id="empresa" disabled type="text">
                                     </div>
@@ -187,12 +189,6 @@ include('../layaout/parte1.php');
                                     </div>
 
                                 </div>
-                                
-
-                                <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Actualizar producto</button>
-                                    <a href="<?= $url;  ?>almacen" class="btn btn-default">Regresar</a>
-                                </div>
                         </form>
                     </div>
                 </div>
@@ -200,70 +196,122 @@ include('../layaout/parte1.php');
         </div>
 
         <div class="col-md-3 container">
-             <div class="container mt-4 rounded pt-3 pb-3 p-1 shadow-sm bg-white">
-             <div class="col-md-12">
-                  <?php 
-                       
-                       $contador_num_compras = 1;
-                      foreach ($compras_datos as $compras_dato){
-                          $contador_num_compras = $contador_num_compras + 1;  
-                     } ?>
-                     <label for="">Nro. de compra</label>
-                     <input value="<?php echo $contador_num_compras; ?>" class="form-control" type="number" name="" id="">
-            </div>
+            <div class="container mt-4 rounded pt-3 pb-3 p-1 shadow-sm bg-white">
+                <div class="col-md-12">
+                    <?php
 
-            <div class="col-md-12">
-                <label for="">Fecha de la compra</label>
-                <input class="form-control" type="date" name="" id="">
-            </div>
+                    $contador_num_compras = 1;
+                    foreach ($compras_datos as $compras_dato) {
+                        $contador_num_compras = $contador_num_compras + 1;
+                    } ?>
+                    <label for="">Nro. de compra</label>
+                    <input value="<?php echo $contador_num_compras; ?>" class="form-control" type="number" name="" id="nro_compra" hidden>
+                    <input value="<?php echo $contador_num_compras; ?>" class="form-control" type="number" disabled>
+                </div>
 
-            <div class="col-md-12">
-                <label for="">Precio de la compra</label>
-                <input class="form-control" type="text" name="factura" id="factura">
-            </div>
+                <div class="col-md-12">
+                    <label for="">Fecha de la compra</label>
+                    <input class="form-control" type="date" name="" id="fecha_compra">
+                </div>
 
-            <div class="col-md-12">
-                <label for="">Comprobante de la compra</label>
-                <input class="form-control" type="text" name="factura" id="factura">
-            </div>
+                <div class="col-md-12">
+                    <label for="">Precio de la compra</label>
+                    <input class="form-control" type="text" id="precio_compra">
+                </div>
 
-        
-            <div class="row">
-            <div class="col-md-6 text-center">
-                <label for="">Stock actual</label>
-                <input style="background-color:#ecf7e7; color: #3b4e36;" class="form-control text-center" type="number" name="stock_actual" id="stock_actual" disabled>
-            </div>
-            <div class="col-md-6 text-center">
-                <label for="">Total de stock</label>
-                <input class="form-control text-center" type="number" name="stock_total" id="stock_total" disabled>
-            </div>
-            </div>
+                <div class="col-md-12">
+                    <label for="">Comprobante de la compra</label>
+                    <input class="form-control" type="text" id="comprobante">
+                </div>
 
-            <div class="col-md-12 text-center">
-                <label for="">Cantidad de la compra</label>
-                <input class="form-control" type="number" name="cantidad_compra" id="cantidad_compra">
-                <script>
-                    $('#cantidad_compra').keyup( function () {
-                       const stock_actual = $('#stock_actual').val();
-                       const stock_compra = $('#cantidad_compra').val();
 
-                       const total_stock_compra = parseInt(stock_actual) + parseInt(stock_compra);
-                       $('#stock_total').val(total_stock_compra);
-                    });
-                </script>
-            </div>
-            
+                <div class="row">
+                    <div class="col-md-6 text-center">
+                        <label for="">Stock actual</label>
+                        <input style="background-color:#ecf7e7; color: #3b4e36; border:none;" class="form-control text-center" type="number" name="stock_actual" id="stock_actual" disabled>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <label for="">Total de stock</label>
+                        <input class="form-control text-center" type="number" name="stock_total" id="stock_total" disabled>
+                    </div>
+                </div>
 
-            <div class="col-md-12">
-                <label for="">Usuario</label>
-                <select name="id_categoria" id="id_categoria" class="form-control" required>
-                        <?php foreach ($usuarios_info as $row_usuarios) { ?>
-                          <option value="<?php echo $row_usuarios['id_usuario']; ?>" >
-                           <?php echo $row_usuarios['nombres']; ?></option>
-                        <?php } ?>
-                </select>
+                <div class="col-md-12 text-center">
+                    <label for="">Cantidad de la compra</label>
+                    <input class="form-control" type="number" name="cantidad_compra" id="cantidad_compra">
+                    <script>
+                        $('#cantidad_compra').keyup(function() {
+                            const stock_actual = $('#stock_actual').val();
+                            const stock_compra = $('#cantidad_compra').val();
+
+                            const total_stock_compra = parseInt(stock_actual) + parseInt(stock_compra);
+                            $('#stock_total').val(total_stock_compra);
+                        });
+                    </script>
+                </div>
+
+
+                <div class="col-md-12 mb-3">
+                    <label for="">Usuario</label>
+                    <input type="text" class="form-control" id="" value="<?php echo $nombre_sesion; ?>" disabled>
+                    <input type="text" id="id_usuario" value="<?php echo $id_sesion_usuario; ?>" hidden>
+                </div>
+
+                <div class="col-md-12 mb-2">
+                    <button id="generar-compra" class="btn btn-primary btn-block">Generar compra</button>
+                    <script>
+                        $('#generar-compra').click(function() {
+
+                            const id_producto = $('#id_producto').val();
+                            const nro_compra = $('#nro_compra').val();
+                            const fecha_compra = $('#fecha_compra').val();
+                            const id_proveedor = $('#id_proveedor').val();
+                            const comprobante = $('#comprobante').val();
+                            const id_usuario = "<?php echo $id_sesion_usuario; ?>";
+                            const precio_compra = $('#precio_compra').val();
+                            const cantidad_compra = $('#cantidad_compra').val();
+                            //alert(cantidad_compra)
+
+                            if (id_producto == "") {
+                               $('#id_producto').focus();
+                               alert('Debe llenar todos los campos.');
+                            } 
+                            else if(fecha_compra == ""){
+                                $('#fecha_compra').focus();
+                               alert('Debe llenar todos los campos.');
+                            }
+                            else if(comprobante == ""){
+                                $('#comprobante').focus();
+                               alert('Debe llenar todos los campos.');
+                            }
+                            else if(id_usuario == ""){
+                                $('#id_usuario').focus();
+                               alert('Debe llenar todos los campos.');
+                            }
+                            else if(precio_compra == ""){
+                                $('#precio_compra').focus();
+                               alert('Debe llenar todos los campos.');
+                            }
+                            else if(cantidad_compra == ""){
+                                $('#cantidad_compra').focus();
+                               alert('Debe llenar todos los campos.');
+                            }
+                            else {
+
+                                var url = "../app/controllers/compras/create.php";
+                                $.get(url, {id_proveedor:id_proveedor,nro_compra:nro_compra,id_producto:id_producto,fecha_compra:fecha_compra,comprobante:comprobante,id_usuario:id_usuario,precio_compra:precio_compra,cantidad_compra:cantidad_compra}, function (datos) {
+                                $('#respuesta_compras').html(datos);
+                                });
+                                //alert('enviando')
+                            }
+                        });
+                    </script>
+                </div>
+                <div class="col-md-12 mb-2">
+                    <a href="<?= $url;  ?>compras/" class="btn btn-default btn-block ">Regresar</a>
+                </div>
+                <div class="container" id="respuesta_compras"></div>
             </div>
-             </div>
         </div>
     </div>
 
@@ -296,32 +344,32 @@ include('../layaout/parte2.php');
 
 <!-- Page specific script -->
 <script>
-  $("#example1").DataTable({
-    "pageLength": 5,
-    "language": {
-      "emptyTable": "No hay información",
-      "info": "Mostrando _START_ a _END_ de _TOTAL_ Proveedores",
-      "infoEmpty": "Mostrando 0 a 0 de 0 Proveedores",
-      "infoFiltered": "(Filtrado de _MAX_ total Proveedores)",
-      "infoPostFix": "",
-      "thousands": ",",
-      "lengthMenu": "Mostrar _MENU_ Generar Reportes",
-      "loadingRecords": "Cargando...",
-      "processing": "Procesando...",
-      "search": "Buscador:",
-      "zeroRecords": "Sin resultados encontrados",
-      "paginate": {
-        "first": "Primero",
-        "last": "Ultimo",
-        "next": "Siguiente",
-        "previous": "Anterior"
-      }
-    },
-    "responsive": true,
-    "lengthChange": true,
-    "autoWidth": false,
-    "buttons": ["copy", "csv", "excel", "pdf", "print"]
-  }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $("#example1").DataTable({
+        "pageLength": 5,
+        "language": {
+            "emptyTable": "No hay información",
+            "info": "Mostrando _START_ a _END_ de _TOTAL_ Proveedores",
+            "infoEmpty": "Mostrando 0 a 0 de 0 Proveedores",
+            "infoFiltered": "(Filtrado de _MAX_ total Proveedores)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar _MENU_ Generar Reportes",
+            "loadingRecords": "Cargando...",
+            "processing": "Procesando...",
+            "search": "Buscador:",
+            "zeroRecords": "Sin resultados encontrados",
+            "paginate": {
+                "first": "Primero",
+                "last": "Ultimo",
+                "next": "Siguiente",
+                "previous": "Anterior"
+            }
+        },
+        "responsive": true,
+        "lengthChange": true,
+        "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 </script>
 
 <!-- Page specific script -->

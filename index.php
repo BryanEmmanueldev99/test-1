@@ -50,7 +50,7 @@ include('app/controllers/almacen/listado_de_productos.php');
           </div>
         </div>
 
-
+           
 
         <div class="col-md-3 small-box shadow-none text-center p-3">
           <div class="inner">
