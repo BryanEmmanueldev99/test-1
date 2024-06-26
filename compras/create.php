@@ -232,7 +232,7 @@ include('../layaout/parte1.php');
                     </div>
                     <div class="col-md-6 text-center">
                         <label for="">Total de stock</label>
-                        <input class="form-control text-center" type="number" name="stock_total" id="stock_total" disabled>
+                        <input class="form-control text-center" type="number" id="stock_total" disabled>
                     </div>
                 </div>
 
@@ -270,7 +270,8 @@ include('../layaout/parte1.php');
                             const id_usuario = "<?php echo $id_sesion_usuario; ?>";
                             const precio_compra = $('#precio_compra').val();
                             const cantidad_compra = $('#cantidad_compra').val();
-                            //alert(cantidad_compra)
+                            const stock_total = $('#stock_total').val();
+                            //alert(stock_total)
 
                             if (id_producto == "") {
                                $('#id_producto').focus();
@@ -299,7 +300,7 @@ include('../layaout/parte1.php');
                             else {
 
                                 var url = "../app/controllers/compras/create.php";
-                                $.get(url, {id_proveedor:id_proveedor,nro_compra:nro_compra,id_producto:id_producto,fecha_compra:fecha_compra,comprobante:comprobante,id_usuario:id_usuario,precio_compra:precio_compra,cantidad_compra:cantidad_compra}, function (datos) {
+                                $.get(url, {id_proveedor:id_proveedor,nro_compra:nro_compra,id_producto:id_producto,fecha_compra:fecha_compra,comprobante:comprobante,id_usuario:id_usuario,precio_compra:precio_compra,cantidad_compra:cantidad_compra,stock_total:stock_total}, function (datos) {
                                 $('#respuesta_compras').html(datos);
                                 });
                                 //alert('enviando')
