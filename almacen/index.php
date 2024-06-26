@@ -97,7 +97,14 @@ if(isset($_SESSION['mensaje'])){
                   <td><?php echo $producto['codigo'] ?></td>
                   <td><?php echo $producto['nombre'] ?></td>
                   <td><?php echo $producto['descripcion'] ?></td>
-                  <td><?php echo $producto['stock'] ?></td>
+                  <td>  <p <?php if ($producto['stock_minimo'] > $producto['stock']) {
+                                echo 'style="color: red; background-color: #FFEFE1; border-radius: 4px; "';
+                  }else if($producto['stock'] > $producto['stock_maximo'])  {
+                                echo 'style="background-color: #D9EDC9; border-radius: 4px; "';
+                  } ?> >
+                           <?php echo $producto['stock'] ?>  
+                        </p>  
+                   </td>
                   <td><?php echo $producto['precio_compra'] ?></td>
                   <td><?php echo $producto['precio_venta'] ?></td>
                   <td><?php echo $producto['fecha_ingreso'] ?></td>
