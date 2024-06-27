@@ -8,9 +8,9 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="background-color: ghostwhite;">
                 <!-- /.card-header -->
-                <div class="card-body shadow-lg rounded almacen table-responsive mb-5 mt-5">
+                <div class="card-body shadow-sm rounded almacen table-responsive mb-5 mt-5">
                     <table id="almacentb" class="table table-bordered table-striped table-sm text-center">
                         <thead>
                             <tr>
@@ -78,9 +78,9 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="background-color: ghostwhite;">
                 <!-- /.card-header -->
-                <div class="card-body shadow-lg rounded almacen table-responsive mb-5 mt-5">
+                <div class="card-body shadow-sm rounded almacen table-responsive mb-5 mt-5">
                     <table id="example1" class="table table-bordered table-striped text-center">
                         <thead>
                             <tr>

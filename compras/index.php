@@ -100,10 +100,13 @@ if(isset($_SESSION['mensaje'])){
                   <td><?= $compra_DAO['nombres']; ?></td>
                   <td>
                     <div class="btn-group">
-                      <a href="<?= $url; ?>proveedores/update.php?id=<?php echo $id_proveedor_DAO; ?>" class="btn btn-primary btn-sm">
+                      <a href="<?php echo $url; ?>compras/show.php?id=<?php echo $compra_DAO['id_compra']; ?>" class="btn btn-primary btn-sm">
+                        <i class="fa fa-eye"></i> Ver
+                      </a>
+                      <a href="<?= $url; ?>compras/update.php?id=<?php echo $compra_DAO['id_compra']; ?>" class="btn btn-primary btn-sm">
                         <i class="fa fa-pencil-alt"></i> Editar
                       </a>
-                      <a href="<?= $url; ?>proveedores/delete.php?id=<?php echo $id_proveedor_DAO; ?>" class="btn btn-primary btn-sm">
+                      <a href="<?= $url; ?>compras/delete.php?id=<?php echo $compra_DAO['id_compra']; ?>" class="btn btn-primary btn-sm">
                         <i class="fa fa-trash-alt"></i> Borrar
                       </a>
                     </div>
