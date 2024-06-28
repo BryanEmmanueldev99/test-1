@@ -95,7 +95,7 @@ if(isset($_SESSION['mensaje'])){
                   <td><?= $compra_DAO['fecha_compra']; ?></td>
                   <td><?= $compra_DAO['nombre_proveedor']; ?></td>
                   <td><?= $compra_DAO['comprobante']; ?></td>
-                  <td><?= $compra_DAO['precio_compra']; ?></td>
+                  <td><?= $compra_DAO['precio_de_compra']; ?></td>
                   <td><?= $compra_DAO['codigo']; ?></td>
                   <td><?= $compra_DAO['nombres']; ?></td>
                   <td>

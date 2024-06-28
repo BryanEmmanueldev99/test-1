@@ -1,5 +1,8 @@
 <?php  
 
+//desabilita todos los errores y el modo debug para PHP
+//error_reporting(0); ACTIVAR EN PRODUCCION
+
 //Conexión a la BASE DE DATOS del sistema de ventas
 $servidor='localhost';
 $pass = '';
@@ -9,7 +12,6 @@ $url = 'http://localhost/desarrollo-php/www.sisventasfarmaciasdjesphp.mx/';
 
 
 //public/templates/AdminLTE-3.2.0/plugins/
-
 try{
     $pdo = new PDO("mysql:host=$servidor;dbname=$db;",$usuario,$pass);
  // echo "La conexion a la base de datos fue exitosa";

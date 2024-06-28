@@ -19,5 +19,5 @@ $query_compras->execute();
 $compras_datos = $query_compras->fetchAll(PDO::FETCH_ASSOC);
 
 foreach($compras_datos as $detalle_compra){
-     
+     $precio_de_compra = $detalle_compra['precio_de_compra'];
 }

@@ -1,5 +1,5 @@
 <?php 
-
+//error_reporting(0); ACTIVAR EN PRODUCCION
 session_start();
 if (isset($_SESSION['session_email'])){
 

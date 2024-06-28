@@ -2,15 +2,13 @@
 
 include('../../config.php');
 
-error_reporting(0);
-
 $id_producto = $_GET['id_producto'];
 $nro_compra = $_GET['nro_compra'];
 $fecha_compra = $_GET['fecha_compra'];
 $id_proveedor = $_GET['id_proveedor'];
 $comprobante = $_GET['comprobante'];
 $id_usuario = $_GET['id_usuario'];
-$precio_compra = $_GET['precio_compra'];
+$precio_de_compra = $_GET['precio_de_compra'];
 $cantidad_compra = $_GET['cantidad_compra'];
 $stock_total =$_GET['stock_total'];
 
@@ -28,15 +26,15 @@ $stock_total =$_GET['stock_total'];
      
     $pdo->beginTransaction();
                         
-    $sql = $pdo->prepare("INSERT INTO tb_compras(id_producto, nro_compra, fecha_compra, id_proveedor, comprobante, id_usuario, precio_compra, cantidad, fyh_creacion) 
-    VALUES(:id_producto,:nro_compra,:fecha_compra,:id_proveedor,:comprobante,:id_usuario,:precio_compra,:cantidad,:fyh_creacion)");
+    $sql = $pdo->prepare("INSERT INTO tb_compras(id_producto, nro_compra, fecha_compra, id_proveedor, comprobante, id_usuario, precio_de_compra, cantidad, fyh_creacion) 
+    VALUES(:id_producto,:nro_compra,:fecha_compra,:id_proveedor,:comprobante,:id_usuario,:precio_de_compra,:cantidad,:fyh_creacion)");
     
     
     $sql->bindParam('id_producto', $id_producto);
     $sql->bindParam('nro_compra', $nro_compra);
     $sql->bindParam('fecha_compra', $fecha_compra);
     $sql->bindParam('id_proveedor', $id_proveedor);
-    $sql->bindParam('precio_compra', $precio_compra);
+    $sql->bindParam('precio_de_compra', $precio_de_compra);
     $sql->bindParam('comprobante', $comprobante);
     $sql->bindParam('id_usuario', $id_usuario);
     $sql->bindParam('cantidad', $cantidad_compra);

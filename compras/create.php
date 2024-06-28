@@ -216,7 +216,7 @@ include('../layaout/parte1.php');
 
                 <div class="col-md-12">
                     <label for="">Precio de la compra</label>
-                    <input class="form-control" type="text" id="precio_compra">
+                    <input class="form-control" type="text" id="precio_de_compra">
                 </div>
 
                 <div class="col-md-12">
@@ -268,7 +268,7 @@ include('../layaout/parte1.php');
                             const id_proveedor = $('#id_proveedor').val();
                             const comprobante = $('#comprobante').val();
                             const id_usuario = "<?php echo $id_sesion_usuario; ?>";
-                            const precio_compra = $('#precio_compra').val();
+                            const precio_de_compra = $('#precio_de_compra').val();
                             const cantidad_compra = $('#cantidad_compra').val();
                             const stock_total = $('#stock_total').val();
                             //alert(stock_total)
@@ -289,8 +289,8 @@ include('../layaout/parte1.php');
                                 $('#id_usuario').focus();
                                alert('Debe llenar todos los campos.');
                             }
-                            else if(precio_compra == ""){
-                                $('#precio_compra').focus();
+                            else if(precio_de_compra == ""){
+                                $('#precio_de_compra').focus();
                                alert('Debe llenar todos los campos.');
                             }
                             else if(cantidad_compra == ""){
@@ -300,7 +300,7 @@ include('../layaout/parte1.php');
                             else {
 
                                 var url = "../app/controllers/compras/create.php";
-                                $.get(url, {id_proveedor:id_proveedor,nro_compra:nro_compra,id_producto:id_producto,fecha_compra:fecha_compra,comprobante:comprobante,id_usuario:id_usuario,precio_compra:precio_compra,cantidad_compra:cantidad_compra,stock_total:stock_total}, function (datos) {
+                                $.get(url, {id_proveedor:id_proveedor,nro_compra:nro_compra,id_producto:id_producto,fecha_compra:fecha_compra,comprobante:comprobante,id_usuario:id_usuario,precio_de_compra:precio_de_compra,cantidad_compra:cantidad_compra,stock_total:stock_total}, function (datos) {
                                 $('#respuesta_compras').html(datos);
                                 });
                                 //alert('enviando')
