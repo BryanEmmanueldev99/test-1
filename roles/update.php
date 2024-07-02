@@ -2,6 +2,7 @@
 include('../app/config.php'); 
 include('../app/controllers/roles/update_roles.php');
 include('../layaout/sesion.php');
+include('../auth/index.php');
 include('../layaout/parte1.php');
 ?>
 

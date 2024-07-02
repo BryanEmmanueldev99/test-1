@@ -3,6 +3,7 @@
 include('../app/config.php');
 include('../app/controllers/compras/recuperar_compra.php');
 include('../layaout/sesion.php');
+include('../auth/almacen.php');
 include('../layaout/parte1.php');
 
 ?>

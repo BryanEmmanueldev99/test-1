@@ -37,7 +37,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="<?php echo $url; ?>public/templates/AdminLTE-3.2.0/AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini sidebar-collapse">
   <div class="wrapper">
 
     <!-- Navbar -->
@@ -179,7 +179,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Logo empresa -->
       <a href="<?php echo $url; ?>" class="brand-link logos_djes">
-        <img src="<?php echo $url; ?>/public/img/punto_de_venta.png" alt="sistema de ventas" class="img-fluid m-0 admin_thubmnail" style="opacity: .8; width:100px;">
+        <img src="<?php echo $url; ?>/public/img/punto_de_venta.png" alt="sistema de ventas" class="mt-3 p-1 img-fluid m-0 admin_thubmnail" style="opacity: .8; width:100px;">
       </a>
 
       <!-- Sidebar -->
@@ -209,163 +209,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-
-            <li class="nav-item">
+          <li class="nav-item">
               <a href="<?php echo $url; ?>" class="nav-link acitve">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>Inicio</p>
               </a>
-            </li>
-
-            <!--Modulos usuarios-->
-            <li class="nav-item">
-              <a href="#" class="nav-link active">
-                <!--<i class="nav-icon fas fa-tachometer-alt"></i>-->
-                <i class="nav-icon fas fa-users"></i>
-                <p>
-                  Usuarios
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="<?php echo $url; ?>usuarios/" class="nav-link active">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Listado de Usuarios</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="<?php echo $url; ?>usuarios/create.php" class="nav-link active">
-                    <i class="nav-icon fas fa-th"></i>
-                    <p>Crear Usuario</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <!--Modulos roles-->
-            <li class="nav-item">
-              <a href="#" class="nav-link active">
-                <i class="nav-icon fas fa-user"></i>
-                <p>
-                  Roles
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="<?php echo $url; ?>roles/" class="nav-link active">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Listado de Roles</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="<?php echo $url; ?>roles/create.php" class="nav-link acitve wp-admin-option">
-                    <i class="nav-icon fas fa-th"></i>
-                    <p>Creación de Rol</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <!--Modulos categorias-->
-            <li class="nav-item">
-              <a href="#" class="nav-link active">
-                <i class="nav-icon fas fa-tag"></i>
-                <p>
-                   Categorías
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="<?php echo $url; ?>categorias/" class="nav-link active">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Listado de categorias</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-
-            <!--Modulos Almacen-->
-            <li class="nav-item">
-              <a href="#" class="nav-link active">
-                <i class="nav-icon fas fa-list"></i>
-                <p>
-                  Almacén
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="<?php echo $url; ?>almacen/" class="nav-link active">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Listado de Productos</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="<?php echo $url; ?>almacen/create.php" class="nav-link acitve wp-admin-option">
-                    <i class="nav-icon fas fa-th"></i>
-                    <p>Creación de Producto</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-
-            <!--Modulos Proveedores-->
-            <li class="nav-item">
-              <a href="#" class="nav-link active">
-                <i class="nav-icon fas fa-duotone fa-truck"></i>
-                <p>
-                  Proveedores
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="<?php echo $url; ?>proveedores/" class="nav-link active">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Listado de Proveedores</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-
-             <!--Modulos Compras-->
-             <li class="nav-item">
-              <a href="#" class="nav-link active">
-                <i class="nav-icon fas fa-cart-plus"></i>
-                <p>
-                  Compras
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="<?php echo $url; ?>compras/" class="nav-link active">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Listado de compras</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <!--cerrar la sesion-->
+      </li>
+            <!-- lista de modulos template -->
+                     <?php include('modulos.php'); ?>
+                     
+                     <!--cerrar la sesion-->
             <li class="nav-item">
               <a href="<?php echo $url; ?>app/controllers/login/cerrar_sesion.php" class="nav-link acitve">
                 <i class="nav-icon fas fa-door-closed"></i>
                 <p>Cerrar sesión</p>
               </a>
             </li>
-
-
-
-
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

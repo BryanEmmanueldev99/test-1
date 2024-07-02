@@ -3,6 +3,7 @@ include('../app/config.php');
 include('../app/controllers/usuarios/update_usuario_dao.php');
 include('../app/controllers/roles/listado_de_roles.php');
 include('../layaout/sesion.php');
+include('../auth/index.php');
 include('../layaout/parte1.php');
 ?>
 

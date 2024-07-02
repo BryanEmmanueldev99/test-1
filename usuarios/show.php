@@ -2,6 +2,7 @@
 include('../app/config.php'); 
 include('../app/controllers/usuarios/show_usuario_dao.php');
 include('../layaout/sesion.php');
+include('../auth/index.php');
 ?>
 
 <?php include('../layaout/parte1.php'); ?>

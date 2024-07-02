@@ -1,6 +1,7 @@
 <?php 
 include('../app/config.php'); 
 include('../layaout/sesion.php');
+include('../auth/index.php');
 ?>
 
 

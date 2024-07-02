@@ -1,6 +1,7 @@
 <?php
 include('../app/config.php');
 include('../layaout/sesion.php');
+include('../auth/index.php');
 include('../app/controllers/usuarios/listado_de_usuarios.php');
 include('../layaout/parte1.php');
 ?>

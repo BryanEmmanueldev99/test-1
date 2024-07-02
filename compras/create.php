@@ -9,6 +9,7 @@ include('../app/controllers/proveedores/listado_de_proveedores.php');
 include('../app/controllers/compras/listado_de_compras.php');
 include('../app/controllers/usuarios/listado_de_usuarios.php');
 include('../layaout/sesion.php');
+include('../auth/almacen.php');
 include('../layaout/parte1.php');
 
 ?>

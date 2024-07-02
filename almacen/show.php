@@ -5,6 +5,7 @@ include('../app/config.php');
 include('../app/controllers/almacen/cargar_producto.php');
 include('../app/controllers/categorias/listado_de_categorias.php');
 include('../layaout/sesion.php');
+include('../auth/almacen.php');
 include('../layaout/parte1.php');
 
 ?>
