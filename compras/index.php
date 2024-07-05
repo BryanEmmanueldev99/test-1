@@ -6,24 +6,6 @@ include('../app/controllers/compras/listado_de_compras.php');
 include('../layaout/parte1.php');
 ?>
 
-<?php /*
-if(isset($_SESSION['mensaje'])){
-  $respuesta = $_SESSION['mensaje']; ?>
-
-
-
-<script>
-    Swal.fire({
-  title: "<?php echo $respuesta; ?>",
-  icon: "success"
-});
-</script>
-
-<?php } unset($_SESSION['mensaje']); */ ?>
-
-
-
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -73,7 +55,7 @@ if(isset($_SESSION['mensaje'])){
                 <th>Proveedor</th>
                 <th>Comprobante</th>
                 <th>Precio compra</th>
-                <th>Lote</th>
+                <th>SKU</th>
                 <th>Usuario</th>
                 <th>Acciones</th>
               </tr>

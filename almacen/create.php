@@ -172,7 +172,7 @@ include('../app/controllers/categorias/listado_de_categorias.php');
                 <div class="col-md-6">
                   <div class="form-group mb-3">
                     <label for="precio_compra">Precio compra:</label>
-                    <input type="text" name="precio_compra" value="$" class="form-control" id="precio_compra" required>
+                    <input type="number" name="precio_compra" class="form-control" id="precio_compra" required>
                   </div>
                 </div>
 
@@ -180,7 +180,7 @@ include('../app/controllers/categorias/listado_de_categorias.php');
                 <div class="col-md-6">
                   <div class="form-group mb-3">
                     <label for="precio_venta">Precio venta:</label>
-                    <input type="text" name="precio_venta" value="$" class="form-control" id="precio_venta"  required>
+                    <input type="number" name="precio_venta"  class="form-control" id="precio_venta"  required>
                   </div>
 
                 </div>

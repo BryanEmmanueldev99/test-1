@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-07-2024 a las 00:46:13
+-- Tiempo de generación: 06-07-2024 a las 01:09:49
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.0.25
 
@@ -50,9 +50,10 @@ CREATE TABLE `tb_almacen` (
 --
 
 INSERT INTO `tb_almacen` (`id_producto`, `codigo`, `nombre`, `descripcion`, `id_categoria`, `id_usuario`, `stock`, `stock_minimo`, `stock_maximo`, `precio_compra`, `precio_venta`, `fecha_ingreso`, `imagen`, `fyh_creacion`, `fyh_actualizacion`) VALUES
-(17, '0101', 'E pura de 2 mL', 'Agua Simple', 10, 8, 70, 200, 0, '$23', '$50', '2024-06-19', '2024-06-28-10-03-22__epura.webp', '2024-06-19 02:47:38', '2024-06-28 05:42:03'),
-(19, '010130303', 'Agua Bonafon Sabor Jamaica', 'algo...', 10, 8, 200, 100, 1200, '$25', '$35', '2024-06-14', '2024-06-28-10-05-00__agua_bonafon.jpg', '2024-06-20 02:13:39', '2024-06-28 03:56:37'),
-(20, '7501059225350', 'Leche Nido Kinder 800 G', 'Alimento para niños', 1, 8, 840, 300, 500, '$240', '$287', '2024-01-29', '2024-06-28-10-04-28__leche_nido_800g.jpg', '2024-06-20 02:17:08', '2024-06-28 05:48:32');
+(17, '0101', 'E pura de 2 mL', 'Agua Simple', 10, 8, 70, 200, 0, '23', '50.00', '2024-06-19', '2024-06-28-10-03-22__epura.webp', '2024-06-19 02:47:38', '2024-06-28 05:42:03'),
+(19, '010130303', 'Agua Bonafon Sabor Jamaica', 'algo...', 10, 8, 200, 100, 1200, '25', '35', '2024-06-14', '2024-06-28-10-05-00__agua_bonafon.jpg', '2024-06-20 02:13:39', '2024-06-28 03:56:37'),
+(20, '7501059225350', 'Leche Nido Kinder 800 G', 'Alimento para niños', 1, 8, 840, 300, 500, '240', '287.40', '2024-01-29', '2024-06-28-10-04-28__leche_nido_800g.jpg', '2024-06-20 02:17:08', '2024-06-28 05:48:32'),
+(22, '0003030', 'Estomaquil', 'Axiliar para gastristis', 3, 2, 200, 180, 700, '70', '140', '2024-07-04', '2024-07-04-03-21-23__image-removebg-preview (49).png', '2024-07-04 03:21:23', '2024-07-04 03:22:05');
 
 -- --------------------------------------------------------
 
@@ -62,12 +63,20 @@ INSERT INTO `tb_almacen` (`id_producto`, `codigo`, `nombre`, `descripcion`, `id_
 
 CREATE TABLE `tb_carrito` (
   `id_carrito` int(11) NOT NULL,
-  `id_venta` int(11) NOT NULL,
+  `nro_venta` int(11) NOT NULL,
   `id_producto` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL,
   `fyh_creacion` datetime NOT NULL,
   `fyh_actualizacion` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `tb_carrito`
+--
+
+INSERT INTO `tb_carrito` (`id_carrito`, `nro_venta`, `id_producto`, `cantidad`, `fyh_creacion`, `fyh_actualizacion`) VALUES
+(3, 1, 20, 2, '2024-07-04 01:58:27', '0000-00-00 00:00:00'),
+(11, 1, 22, 1, '2024-07-05 06:00:01', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -114,6 +123,14 @@ CREATE TABLE `tb_clientes` (
   `fyh_creacion` datetime NOT NULL,
   `fyh_actualizacion` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `tb_clientes`
+--
+
+INSERT INTO `tb_clientes` (`id_cliente`, `nombre_cliente`, `nit_ci_cliente`, `celular_cliente`, `email_cliente`, `fyh_creacion`, `fyh_actualizacion`) VALUES
+(1, 'Juanito Navajas', '89200002', '56567890', 'jual@gmail.com', '2024-07-05 23:56:28', '2024-07-05 23:56:28'),
+(2, 'Karina', '7821001', '5654553881', 'kari@hotmal.com', '2024-07-05 23:58:48', '2024-07-05 23:58:48');
 
 -- --------------------------------------------------------
 
@@ -227,6 +244,7 @@ INSERT INTO `tb_usuarios` (`id_usuario`, `nombres`, `email`, `password_user`, `t
 
 CREATE TABLE `tb_ventas` (
   `id_venta` int(11) NOT NULL,
+  `nro_venta` int(11) NOT NULL,
   `id_cliente` int(11) NOT NULL,
   `total_pagado` int(11) NOT NULL,
   `fyh_creacion` datetime NOT NULL,
@@ -250,7 +268,7 @@ ALTER TABLE `tb_almacen`
 --
 ALTER TABLE `tb_carrito`
   ADD PRIMARY KEY (`id_carrito`),
-  ADD KEY `id_venta` (`id_venta`),
+  ADD KEY `id_venta` (`nro_venta`),
   ADD KEY `id_producto` (`id_producto`);
 
 --
@@ -299,7 +317,8 @@ ALTER TABLE `tb_usuarios`
 --
 ALTER TABLE `tb_ventas`
   ADD PRIMARY KEY (`id_venta`),
-  ADD KEY `id_cliente` (`id_cliente`);
+  ADD KEY `id_cliente` (`id_cliente`),
+  ADD KEY `nro_venta` (`nro_venta`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -309,13 +328,13 @@ ALTER TABLE `tb_ventas`
 -- AUTO_INCREMENT de la tabla `tb_almacen`
 --
 ALTER TABLE `tb_almacen`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_carrito`
 --
 ALTER TABLE `tb_carrito`
-  MODIFY `id_carrito` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_carrito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_categoria`
@@ -327,7 +346,7 @@ ALTER TABLE `tb_categoria`
 -- AUTO_INCREMENT de la tabla `tb_clientes`
 --
 ALTER TABLE `tb_clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_compras`
@@ -374,8 +393,7 @@ ALTER TABLE `tb_almacen`
 -- Filtros para la tabla `tb_carrito`
 --
 ALTER TABLE `tb_carrito`
-  ADD CONSTRAINT `tb_carrito_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `tb_almacen` (`id_producto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `tb_carrito_ibfk_2` FOREIGN KEY (`id_venta`) REFERENCES `tb_ventas` (`id_venta`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tb_carrito_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `tb_almacen` (`id_producto`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `tb_compras`
@@ -395,7 +413,8 @@ ALTER TABLE `tb_usuarios`
 -- Filtros para la tabla `tb_ventas`
 --
 ALTER TABLE `tb_ventas`
-  ADD CONSTRAINT `tb_ventas_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `tb_clientes` (`id_cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tb_ventas_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `tb_clientes` (`id_cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `tb_ventas_ibfk_2` FOREIGN KEY (`nro_venta`) REFERENCES `tb_carrito` (`nro_venta`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

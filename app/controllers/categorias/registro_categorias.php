@@ -1,10 +1,7 @@
 <?php
 include('../../config.php');
 
-//INSER INTO C-R-U-D
 $nombre_categoria = $_GET['nombre_categoria'];
-
-
 
 $sql = $pdo->prepare("INSERT INTO tb_categoria(nombre_categoria, fyh_creacion) 
 VALUES(:nombre_categoria, :fyh_creacion)");
