@@ -1,7 +1,7 @@
 <?php
 include('../app/config.php');
 include('../layaout/sesion.php');
-include('../auth/almacen.php');
+include('../auth/staff_de_ventas.php');
 include('../app/controllers/almacen/listado_de_productos.php');
 include('../layaout/parte1.php');
 ?>
@@ -65,7 +65,7 @@ if(isset($_SESSION['mensaje'])){
           <a href="<?= $url; ?>almacen/create.php" class="btn btn-primary">
             <i class="fa fa-plus"></i> Agregar nuevo producto
           </a>
-          <table id="almacentb" class="table table-bordered table-striped table-responsive table-sm text-center">
+          <table id="almacentb" class="table table-bordered table-striped table-responsive text-center">
             <thead>
               <tr>
                 <th style="width: 30px">Nro</th>
@@ -93,7 +93,7 @@ if(isset($_SESSION['mensaje'])){
                 <tr>
                   <td><?php echo $id_front_end = $id_front_end + 1; ?></td>
                   <td>
-                    <img class="img-fluid img-thumbnail shadow-sm" width="100px" src="<?= $file_producto; ?>" alt="<?= $producto['nombre']; ?>">
+                    <img class="img-fluid img-thumbnail shadow-sm" width="120px" src="<?= $file_producto; ?>" alt="<?= $producto['nombre']; ?>">
                   </td>
                   <td><?php echo $producto['codigo'] ?></td>
                   <td><?php echo $producto['nombre'] ?></td>

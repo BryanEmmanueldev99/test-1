@@ -11,7 +11,7 @@
             <div class="modal-body" style="background-color: ghostwhite;">
                 <!-- /.card-header -->
                 <div class="card-body shadow-sm rounded almacen table-responsive mb-5 mt-5">
-                    <table id="almacentb" class="table table-bordered table-striped table-sm text-center">
+                    <table id="tbclients" class="table table-bordered table-striped table-sm text-center">
                         <thead>
                             <tr>
                                 <th style="width: 30px">Nro</th>
@@ -44,6 +44,8 @@
                                 <script>
                                     $('#btn_selecionar_cliente<?php echo $id_cliente; ?>').click(function() {
 
+                                        const id_cliente = "<?php echo $id_cliente; ?>";
+                                        $('#id_cliente').val(id_cliente);
                                         const nombre_cliente = "<?php echo $cliente_DAO['nombre_cliente'] ?>";
                                         $('#nombre_cliente').val(nombre_cliente);
                                         const celular_cliente = "<?php echo $cliente_DAO['celular_cliente'] ?>";
@@ -52,6 +54,8 @@
                                         $('#email_cliente').val(email_cliente);
                                         const nit_ci_cliente = "<?php echo $cliente_DAO['nit_ci_cliente'] ?>";
                                         $('#nit_ci_cliente').val(nit_ci_cliente);
+
+                                        //alert(email_cliente)
 
                                         //cierra el modal al seleccionar un producto
                                         $('#modal-buscar-cliente').modal('toggle');

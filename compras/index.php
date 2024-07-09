@@ -1,7 +1,7 @@
 <?php
 include('../app/config.php');
 include('../layaout/sesion.php');
-include('../auth/almacen.php');
+include('../auth/staff_de_ventas.php');
 include('../app/controllers/compras/listado_de_compras.php');
 include('../layaout/parte1.php');
 ?>

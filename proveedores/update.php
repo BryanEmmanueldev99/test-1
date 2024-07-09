@@ -2,8 +2,9 @@
 include('../app/config.php');
 include('../app/controllers/proveedores/update_proveedores.php');
 include('../layaout/sesion.php');
-include('../auth/almacen.php');
+include('../auth/staff_de_ventas.php');
 include('../layaout/parte1.php');
+
 ?>
 
 

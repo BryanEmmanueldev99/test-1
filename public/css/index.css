@@ -11,6 +11,19 @@
     border-radius: 5px !important;
 }
 
+.card-header{
+    border: none !important;
+}
+
+.alert-danger {
+    color: red; 
+    background-color: #FFEFE1;
+    border: none;
+    border-radius: 1em;
+}
+.alert-add-cliente{
+    font-size: 15px;
+}
 .btn-primary {
     background-color: #0866ff !important;
     border: 1px solid #0866ff !important;

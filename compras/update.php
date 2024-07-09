@@ -3,7 +3,7 @@
 include('../app/config.php');
 include('../app/controllers/compras/recuperar_compra.php');
 include('../layaout/sesion.php');
-include('../auth/almacen.php');
+include('../auth/staff_de_ventas.php');
 include('../layaout/parte1.php');
 include('../app/controllers/almacen/listado_de_productos.php');
 include('../app/controllers/proveedores/listado_de_proveedores.php');

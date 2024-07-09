@@ -264,7 +264,7 @@ while($id_rol_sesion == $WC_Admin && $i == 0) { ?>
 
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="<?php echo $url; ?>ventas/" class="nav-link active">
+                  <a href="<?php echo $url; ?>ventas/create.php" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Crear nueva venta</p>
                   </a>

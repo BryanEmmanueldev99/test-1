@@ -82,7 +82,7 @@
                     </div>
 
                     <div class="container mt-3">
-                        <button class="btn btn-primary" id="btn_add_carrito"><i class="fa fa-shopping-cart"></i> Agregar productos al carrito</button>
+                        <button class="btn btn-primary" id="btn_add_carrito"><i class="fa fa-shopping-cart"></i> Agregar producto al carrito</button>
                     </div>
 
                     <div class="data_carrito" id="respuesta_carrito"></div>
