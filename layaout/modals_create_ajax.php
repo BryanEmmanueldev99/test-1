@@ -33,7 +33,7 @@
                             foreach ($productos_info as $producto) {
                                 $id_producto_DAO = $producto['id_producto'];
                                 $img_producto = $producto['imagen'];
-                                $file_producto = $url . "almacen/wc_img_productos/$img_producto";
+                                $file_producto = $url . "almacen/wcstore_img/$img_producto";
                             ?>
                                 <tr>
                                     <td><?php echo $id_front_end = $id_front_end + 1; ?></td>

@@ -143,7 +143,7 @@ include('../layaout/parte1.php');
                 <div class="col-md-6">
                   <div class="form-group mb-3">
                         
-                      <img class="img-fluid" width="100%" src="<?= $url . 'almacen/wc_img_productos/' . $producto_DAO['imagen']; ?>" alt="<?= $producto_DAO['imagen']; ?>">
+                      <img class="img-fluid" width="100%" src="<?= $url . 'almacen/wcstore_img/' . $producto_DAO['imagen']; ?>" alt="<?= $producto_DAO['imagen']; ?>">
                       
                   </div>
                 </div>

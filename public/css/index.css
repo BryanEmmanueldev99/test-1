@@ -5,6 +5,15 @@
     text-align: center;
 }
 
+
+
+
+
+/*position fixed sobre el div sidebard  pendiente
+.sidebar {
+    position: fixed !important;
+}*/
+
 /*Globales bootstrapp 5*/
 .dropdown-menu.dropdown-menu-lg.dropdown-menu-right.show {
     border: none !important;

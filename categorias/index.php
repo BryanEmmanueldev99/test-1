@@ -6,22 +6,6 @@ include('../app/controllers/categorias/listado_de_categorias.php');
 include('../layaout/parte1.php'); 
 ?>
 
-<?php /* sesion reactivar cuando se requiera
-if(isset($_SESSION['mensaje'])){
-  $respuesta = $_SESSION['mensaje']; ?>
-
-
-
-<script>
-    Swal.fire({
-  title: "<?php echo $respuesta; ?>",
-  icon: "success"
-});
-</script>
-
-<?php } unset($_SESSION['mensaje']); */ ?> 
-
-
 
 
 <!-- Content Wrapper. Contains page content -->

@@ -202,7 +202,7 @@ include('../app/controllers/categorias/listado_de_categorias.php');
                 <div class="col-md-6">
                   <div class="form-group mb-3">
                     <label for="imagen">Cargar una foto del producto</label>
-                    <input type="file" name="imagen" id="file" class="form-control" id="imagen" required>
+                    <input type="file" name="imagen" id="file" class="form-control" id="imagen">
                     <output id="list" style="text-align: center;"></output>
                     <script>
                       function archivo(evt) {

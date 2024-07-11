@@ -4,13 +4,15 @@ include('../../config.php');
 $nro_venta = $_GET['nro_venta'];
 $id_producto = $_GET['id_producto'];
 $cantidad = $_GET['cantidad'];
-
-$sql = $pdo->prepare("INSERT INTO tb_carrito(nro_venta,id_producto,cantidad,fyh_creacion) 
-VALUES(:nro_venta,:id_producto,:cantidad,:fyh_creacion)");
+$status_event_carrito = 'activo';
+//SELECT * FROM `tb_carrito` WHERE `status_event_carrito` = 'activo'
+$sql = $pdo->prepare("INSERT INTO tb_carrito(nro_venta,id_producto,cantidad,status_event_carrito,fyh_creacion) 
+VALUES(:nro_venta,:id_producto,:cantidad,:status_event_carrito,:fyh_creacion)");
 
 $sql->bindParam('nro_venta', $nro_venta);
 $sql->bindParam('id_producto', $id_producto);
 $sql->bindParam('cantidad',$cantidad);
+$sql->bindParam('status_event_carrito',$status_event_carrito);
 $sql->bindParam('fyh_creacion', $fechaHora);
 
 

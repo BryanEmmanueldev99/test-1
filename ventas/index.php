@@ -44,7 +44,7 @@ include('../layaout/parte1.php');
           <div class="btn-add mb-4">
             <a href="<?= $url; ?>ventas/create.php" class="btn btn-primary">
               <i class="fa fa-plus"></i> Agregar nueva venta
-           </a>
+            </a>
           </div>
           <table id="example1" class="table table-bordered table-striped text-center">
             <thead>
@@ -61,7 +61,7 @@ include('../layaout/parte1.php');
               <?php
               $id_front_end = 0;
               foreach ($ventas_datos as $venta_DAO) {
-               $nro_venta_DAO = $venta_DAO['nro_venta'];
+                $nro_venta_DAO = $venta_DAO['nro_venta'];
               ?>
                 <tr>
                   <td><?= $id_front_end = $id_front_end + 1; ?></td>
@@ -71,109 +71,112 @@ include('../layaout/parte1.php');
 
 
                     <!--modal detalles de los productos de la venta-->
-<div class="modal fade show" id="modal-venta-productos<?= $venta_DAO['id_venta']; ?>" aria-modal="true" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Detalles de la venta <?= $nro_venta_DAO; ?></h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!--table venta-->
-                <div class="table-responsive mt-2 rounded">
-                                <table class="rounded table table-striped table-hover text-center table-sm">
-                                    <thead>
-                                        <tr>
-                                            <th>Nro</th>
-                                            <th>Producto</th>
-                                            <th>Cantidad</th>
-                                            <th>Precio unitario</th>
-                                            <th>Subtotal</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="table-group-divider">
+                    <div class="modal fade show" id="modal-venta-productos<?= $venta_DAO['id_venta']; ?>" aria-modal="true" role="dialog">
+                      <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h4 class="modal-title">Detalles de la venta <?= $nro_venta_DAO; ?></h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">×</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <!--table venta-->
+                            <div class="table-responsive mt-2 rounded">
+                              <table class="rounded table table-striped table-hover text-center table-responnsive table-sm">
+                                <thead>
+                                  <tr>
+                                    <th>Nro</th>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio unitario</th>
+                                    <th>Subtotal</th>
+                                  </tr>
+                                </thead>
+                                <tbody class="table-group-divider">
+                                  <?php
+                                  $contador_ventas = 0;
+                                  $contador_carrito = 0;
+                                  $cantidad_total = 0;
+                                  $precio_unitario_total = 0;
+                                  $precio_total = 0;
+                                  //$precio_total = 0;
+                                  include('../app/controllers/ventas/carrito/reporte_venta.php');
+                                  foreach ($carrito_datos as $item) {
+                                    $contador_carrito = $contador_carrito + 1;
+                                    $cantidad_total = $cantidad_total + $item['cantidad'];
+                                    $precio_unitario_total = $precio_unitario_total + floatval($item['precio']);
+                                    $id_producto = $item['id_producto'];
+
+                                  ?>
+
+                                    <tr>
+                                      <td scope="row">
+                                        <input type="text" value="<?= $item['inventario_minimo']; ?>" hidden>
+                                        <input type="text" value="<?= $item['id_producto']; ?>" id="id_producto<?= $contador_carrito; ?>" hidden>
+                                        <?= $contador_carrito; ?>
+                                      </td>
+                                      <td>
+                                        <?= $item['nombre_producto']; ?>
+                                      </td>
+                                      <td>
+                                        <span id="cantidad_carrito<?= $contador_carrito; ?>"><?= $item['cantidad']; ?></span>
+                                        <input type="text" id="stock_inventario<?= $contador_carrito; ?>" value="<?= $item['stock'] ?>" hidden>
+                                      </td>
+                                      <td>$<?= $item['precio']; ?></td>
+                                      <td>
                                         <?php
-                                        $contador_ventas = 0;
-                                        $contador_carrito = 0;
-                                        $cantidad_total = 0;
-                                        $precio_unitario_total = 0;
-                                        $precio_total = 0;
-                                        //$precio_total = 0;
-                                        include('../app/controllers/ventas/carrito/reporte_venta.php');
-                                        foreach ($carrito_datos as $item) {
-                                            $contador_carrito = $contador_carrito + 1;
-                                            $cantidad_total = $cantidad_total + $item['cantidad'];
-                                            $precio_unitario_total = $precio_unitario_total + floatval($item['precio']);
-
+                                        $cantidad = floatval($item['cantidad']);
+                                        $precio = floatval($item['precio']);
+                                        echo '$' . $subtotal = $cantidad * $precio;
+                                        $precio_total = $precio_total + $subtotal;
                                         ?>
+                                      </td>
+                                    </tr>
+                                  <?php } ?>
+                                  <tr>
+                                    <th colspan="2" style="background-color: #f8f8f8;">Total</th>
+                                    <th style="background-color: #f8f8f8;">
+                                      <?php echo $cantidad_total;  ?>
+                                    </th>
+                                    <th style="background-color: #f8f8f8;">
+                                      $<?php echo $precio_unitario_total; ?>
+                                    </th>
+                                    <th style="background-color: #f8f8f8;">$<?= $precio_total; ?></th>
+                                  </tr>
+                                </tbody>
+                                <tfoot>
 
-                                            <tr>
-                                                <td scope="row">
-                                                    <input type="text" value="<?= $item['inventario_minimo']; ?>" hidden>
-                                                    <input type="text" value="<?= $item['id_producto']; ?>" id="id_producto<?= $contador_carrito; ?>" hidden>
-                                                    <?= $contador_carrito; ?>
-                                                </td>
-                                                <td>
-                                                    <?= $item['nombre_producto']; ?>
-                                                </td>
-                                                <td>
-                                                <span id="cantidad_carrito<?= $contador_carrito; ?>"><?= $item['cantidad']; ?></span>
-                                                <input type="text" id="stock_inventario<?= $contador_carrito; ?>" value="<?= $item['stock'] ?>" hidden>  
-                                                </td>
-                                                <td>$<?= $item['precio']; ?></td>
-                                                <td>
-                                                    <?php
-                                                    $cantidad = floatval($item['cantidad']);
-                                                    $precio = floatval($item['precio']);
-                                                    echo '$' . $subtotal = $cantidad * $precio;
-                                                    $precio_total = $precio_total + $subtotal;
-                                                    ?>
-                                                </td>
-                                            </tr>
-                                        <?php } ?>
-                                        <tr>
-                                            <th colspan="2" style="background-color: #f8f8f8;">Total</th>
-                                            <th style="background-color: #f8f8f8;">
-                                                <?php echo $cantidad_total;  ?>
-                                            </th>
-                                            <th style="background-color: #f8f8f8;">
-                                                $<?php echo $precio_unitario_total; ?>
-                                            </th>
-                                            <th style="background-color: #f8f8f8;">$<?= $precio_total; ?></th>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-
-                                    </tfoot>
-                                </table>
+                                </tfoot>
+                              </table>
                             </div>
 
-            </div>
-            <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Regresar</button>
-            </div>
-            </form>
-        </div>
+                          </div>
+                          <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Regresar</button>
+                          </div>
+                          </form>
+                        </div>
 
-    </div>
+                      </div>
 
-</div>
-                </td>
+                    </div>
+                  </td>
                   <td><?= $venta_DAO['cliente']; ?></td>
                   <td>$<?= $venta_DAO['total_pagado']; ?></td>
                   <td>
                     <div class="btn-group">
-                      <a href="<?php echo $url; ?>compras/show.php?id=<?php echo $compra_DAO['id_compra']; ?>" class="btn btn-primary">
+                      <a href="<?php echo $url; ?>ventas/show.php?id=<?= $venta_DAO['id_venta']; ?>" class="btn btn-primary rounded">
                         <i class="fa fa-eye"></i> Ver
                       </a>
-                      <a href="<?= $url; ?>compras/update.php?id=<?php echo $compra_DAO['id_compra']; ?>" class="btn btn-primary">
-                        <i class="fa fa-pencil-alt"></i> Editar
-                      </a>
-                      <a href="<?= $url; ?>compras/delete.php?id=<?php echo $compra_DAO['id_compra']; ?>" class="btn btn-primary">
-                        <i class="fa fa-trash-alt"></i> Borrar
-                      </a>
+
+                      <form action="" method="get">
+                        <a style="margin-left: 5px;" href="<?php echo $url; ?>ventas/delete.php?id=<?= $venta_DAO['id_venta']; ?>" class="btn btn-primary rounded">
+                        <i class="fa fa-key"></i> Cancelar venta
+                        </a>
+                      </form>
+
+                      
                     </div>
                   </td>
                 </tr>
@@ -242,8 +245,3 @@ include('../layaout/parte2.php');
     "buttons": ["copy", "csv", "excel", "pdf", "print"]
   }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 </script>
-
-
-
-
-

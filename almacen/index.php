@@ -6,24 +6,6 @@ include('../app/controllers/almacen/listado_de_productos.php');
 include('../layaout/parte1.php');
 ?>
 
-<?php /*
-if(isset($_SESSION['mensaje'])){
-  $respuesta = $_SESSION['mensaje']; ?>
-
-
-
-<script>
-    Swal.fire({
-  title: "<?php echo $respuesta; ?>",
-  icon: "success"
-});
-</script>
-
-<?php } unset($_SESSION['mensaje']); */ ?>
-
-
-
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -88,7 +70,7 @@ if(isset($_SESSION['mensaje'])){
               foreach ($productos_info as $producto) {
                 $id_producto_DAO = $producto['id_producto'];
                 $img_producto = $producto['imagen'];
-                $file_producto = $url . "almacen/wc_img_productos/$img_producto";
+                $file_producto = $url . "almacen/wcstore_img/$img_producto";
               ?>
                 <tr>
                   <td><?php echo $id_front_end = $id_front_end + 1; ?></td>
@@ -164,7 +146,7 @@ include('../layaout/parte2.php');
       "info": "Mostrando _START_ a _END_ de _TOTAL_ Productos",
       "infoEmpty": "Mostrando 0 a 0 de 0 Productos",
       "infoFiltered": "(Filtrado de _MAX_ total Productos)",
-      "infoPostFix": "",
+      "infoPostFix": "a",
       "thousands": ",",
       "lengthMenu": "Mostrar _MENU_ Generar Reportes",
       "loadingRecords": "Cargando...",

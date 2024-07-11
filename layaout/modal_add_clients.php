@@ -11,7 +11,7 @@
                 <form action="../app/controllers/clientes/create.php" method="post">
   
                     <div class="mb-3">
-                        <label for="" class="form-label">Nombre del cliente</label>
+                        <label for="" class="form-label">Razón social</label>
                         <input
                             type="text"
                             class="form-control"

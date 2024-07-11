@@ -127,7 +127,7 @@ include('../layaout/parte1.php');
 
                                 <div class="col-md-12 text-center">
                                     <label class="bg-info p-2">Imagen del producto:</label>
-                                    <img class="img-fluid" width="100px" src="<?= $url; ?>almacen/wc_img_productos/<?= $detalle_compra['imagen']; ?>" alt="<?= $detalle_compra['imagen']; ?>">
+                                    <img class="img-fluid" width="100px" src="<?= $url; ?>almacen/wcstore_img/<?= $detalle_compra['imagen']; ?>" alt="<?= $detalle_compra['imagen']; ?>">
                                 </div>
 
                                 <hr>

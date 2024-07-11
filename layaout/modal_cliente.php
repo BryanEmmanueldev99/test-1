@@ -16,7 +16,7 @@
                             <tr>
                                 <th style="width: 30px">Nro</th>
                                 <th>Acción</th>
-                                <th>Nombre del cliente</th>
+                                <th>Razón social</th>
                                 <th>NIT/CI</th>
                                 <th>Celular</th>
                                 <th>Correo</th>

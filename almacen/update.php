@@ -152,7 +152,7 @@ include('../layaout/parte1.php');
                   <input type="file" name="imagen" id="file" class="form-control" id="imagen">
                   <input type="text" name="imagen_ruta" id="imagen_ruta" class="form-control" value="<?= $producto_DAO['imagen']; ?>" hidden>
                   <output id="list" style="text-align: center;">
-                    <img class="img-fluid p-0" width="70%" src="<?= $url . 'almacen/wc_img_productos/' . $producto_DAO['imagen']; ?>" alt="<?= $producto_DAO['imagen']; ?>">
+                    <img class="img-fluid p-0" width="70%" src="<?= $url . 'almacen/wcstore_img/' . $producto_DAO['imagen']; ?>" alt="<?= $producto_DAO['imagen']; ?>">
                   </output>
                   <script>
                     function archivo(evt) {

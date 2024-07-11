@@ -90,6 +90,7 @@ include('../app/controllers/clientes/listado_de_clientes.php');
                                     </thead>
                                     <tbody class="table-group-divider">
                                         <?php
+                                
                                         $contador_carrito = 0;
                                         $cantidad_total = 0;
                                         $precio_unitario_total = 0;
@@ -176,9 +177,9 @@ include('../app/controllers/clientes/listado_de_clientes.php');
                         </div>
 
                         <div class="row">
-                            <div class="col-md-9">
+                            <div class="col-md-8">
                                 <div class="card-body shadow-sm rounded mt-5">
-                                    <div class="alert alert-danger d-flex align-items-center alert-dismissible fade show" style="gap: 5px;" role="alert">
+                                    <div class="alert alert-danger d-flex align-items-center alert-dismissible fade show w-75" style="gap: 5px;" role="alert">
                                         <i class="fa fa-heart p-0 m-0"></i>
                                         <p class="p-0 m-0 alert-add-cliente">¿Cliente nuevo? Presiona el botón para agregar uno nuevo.</p>
 
@@ -190,9 +191,9 @@ include('../app/controllers/clientes/listado_de_clientes.php');
                                     <!--modal para agregar clientes-->
                                     <?php include('../layaout/modal_add_clients.php'); ?>
                                     <div class="row mb-2 mt-5">
-                                        <div class="col-md-5 d-flex" style="align-items: center; gap:3px;">
+                                        <div class="col-md-4 d-flex" style="align-items: center; gap:3px;">
                                             <i class="fas fa-user-minus"></i>
-                                            <h5> Datos del cliente</h5>
+                                            <strong>Datos del cliente</strong>
                                         </div>
 
                                         <div class="col-md-7">
@@ -206,7 +207,7 @@ include('../app/controllers/clientes/listado_de_clientes.php');
 
                                         <div class="row mt-3 col-md-12">
                                             <div class="col-md-3">
-                                                <label for="">Cliente</label>
+                                                <label for="">Razón social</label>
                                                 <input disabled type="text" id="nombre_cliente" class="form-control">
                                                 <input type="text" id="id_cliente" hidden>
                                             </div>
@@ -232,7 +233,7 @@ include('../app/controllers/clientes/listado_de_clientes.php');
                                 </div>
                             </div>
 
-                            <div class="col-md-3 mt-5">
+                            <div class="col-md-4 mt-5">
                                 <div class="card-body shadow-sm rounded">
                                     <h5>Crear compra</h5>
 
@@ -261,7 +262,7 @@ include('../app/controllers/clientes/listado_de_clientes.php');
                                     </div>
 
                                     <div class="form-group">
-                                        <button id="generar_venta" class="btn btn-primary btn-block btn-sm">
+                                        <button id="generar_venta" class="btn btn-primary btn-block">
                                             <i class="fa fa-comments-dollar"></i> Generar Venta
                                         </button>
                                         <div class="respuesta_generar_venta" id="respuesta_generar_venta"></div>
@@ -270,6 +271,7 @@ include('../app/controllers/clientes/listado_de_clientes.php');
                                                 const nro_venta = "<?php echo $contador_ventas + 1; ?>";
                                                 const id_cliente = $('#id_cliente').val();
                                                 const monto_a_cancelar = $('#monto_a_cancelar').val();
+                                                const cambio = $('#cambio').val();
 
                                                 if (id_cliente == '') {
                                                     Swal.fire({
@@ -323,7 +325,8 @@ include('../app/controllers/clientes/listado_de_clientes.php');
                                                     $.get(url_venta, {
                                                         id_cliente: id_cliente,
                                                         nro_venta: nro_venta,
-                                                        monto_a_cancelar: monto_a_cancelar
+                                                        monto_a_cancelar: monto_a_cancelar,
+                                                        cambio:cambio
                                                     }, function(datos) {
                                                         $('#respuesta_generar_venta').html(datos);
                                                     });

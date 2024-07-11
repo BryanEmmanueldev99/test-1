@@ -33,7 +33,7 @@
                             foreach ($productos_info as $producto) {
                                 $id_producto_DAO = $producto['id_producto'];
                                 $img_producto = $producto['imagen'];
-                                $file_producto = $url . "almacen/wc_img_productos/$img_producto";
+                                $file_producto = $url . "almacen/wcstore_img/$img_producto";
                             ?>
                                 <tr>
                                     <td><?php echo $id_front_end = $id_front_end + 1; ?></td>
@@ -93,6 +93,7 @@
                             const id_producto = $('#id_producto').val();
                             const cantidad = $('#cantidad').val();
                             const nombre_c_cantidad = "cantidad";
+                            //const status_event_carrito = $('#status_event_carrito').val();
 
                             if (id_producto == '') {
                                 Swal.fire({
@@ -106,12 +107,14 @@
                                     text: "El campo "+nombre_c_cantidad+" es requerido.",
                                     icon: "error"
                                 });
+                            
                             } else {
                                 const url_carrito = "../app/controllers/ventas/agregar_al_carrito.php";
                                 $.get(url_carrito, {
                                     nro_venta:nro_venta,
                                     id_producto:id_producto,
                                     cantidad:cantidad
+                                    
                                 }, function (datos) {
                                 $('#respuesta_carrito').html(datos);
                                 });

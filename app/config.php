@@ -8,13 +8,14 @@ $servidor='localhost';
 $pass = '';
 $usuario = 'root';
 $db = 'sistemadeventas';
-$url = 'http://localhost/desarrollo-php/www.sisventasfarmaciasdjesphp.mx/';
+/* url de base de la app */
+$url = 'http://localhost/desarrollo-php/www.wcstoresisventas.mx/';
 
 
-//public/templates/AdminLTE-3.2.0/plugins/
+   //public/templates/AdminLTE-3.2.0/plugins/
 try{
     $pdo = new PDO("mysql:host=$servidor;dbname=$db;",$usuario,$pass);
- // echo "La conexion a la base de datos fue exitosa";
+    // echo "La conexion a la base de datos fue exitosa";
 }catch (PDOException $e){
     //print_r($e);
     echo "Error al conectar a la base de datos";
