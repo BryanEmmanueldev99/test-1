@@ -86,7 +86,7 @@ $stock_total =$_GET['stock_total'];
        //header('location:'.$url.'categorias/');
        ?>
           <script>
-              location.href = "<?php echo $url; ?>compras/create.php" ;
+              location.href = "<?php echo $url; ?>compras/" ;
           </script>
        <?php 
     }

@@ -7,12 +7,20 @@
 
 
 
-
-
-/*position fixed sobre el div sidebard  pendiente
+/*position fixed sobre el div sidebard  pendiente*/
 .sidebar {
-    position: fixed !important;
-}*/
+    position: fixed;
+}
+[class*=sidebar-dark] .user-panel {
+    border-bottom: 1px solid #fafafa;
+    position: absolute !important;
+}
+
+/*posiciona a la izquierda el logo*/
+.logos_djes{
+    transition: width ease-in-out 2s !important;
+}
+
 
 /*Globales bootstrapp 5*/
 .dropdown-menu.dropdown-menu-lg.dropdown-menu-right.show {

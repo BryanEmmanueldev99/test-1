@@ -8,10 +8,7 @@ include('../layaout/parte1.php');
 include('../app/controllers/almacen/listado_de_productos.php');
 include('../app/controllers/clientes/listado_de_clientes.php');
 include('../app/controllers/ventas/recuperar_venta.php');
-
-
-
-
+include('../app/controllers/ventas/carrito/recupera_carrito_show.php');
 
 ?>
 
@@ -38,56 +35,74 @@ include('../app/controllers/ventas/recuperar_venta.php');
     <!-- Main content -->
     <div class="content">
 
+        <div class="container">
+            <div class="card-body shadow-sm rounded">
+                <!--table venta-->
+                <div class="table-responsive mt-2">
+                    <strong class="mb-2">Historial del carrito generado por la venta.</strong>
+                    <table class="rounded table table-striped table-hover text-center table-responnsive table-sm mt-2">
+                        <thead>
+                            <tr>
+                                <th>Nro</th>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Precio unitario</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
 
-    <?php
-                                  $nro_venta;
-                                  $contador_ventas = 0;
-                                  $contador_carrito = 0;
-                                  $cantidad_total = 0;
-                                  $precio_unitario_total = 0;
-                                  $precio_total = 0;
-                                  
-$sql_carrito = "SELECT *, producto.nombre AS nombre_producto, producto.precio_venta AS precio, producto.stock AS stock, producto.id_producto AS id_producto, producto.stock_minimo AS inventario_minimo
-FROM tb_carrito AS carrito INNER JOIN tb_almacen AS producto 
-ON carrito.id_producto = producto.id_producto WHERE nro_venta = '$nro_venta'";
-$query_carrito = $pdo->prepare($sql_carrito);
-$query_carrito->execute();
-$carrito_datos = $query_carrito->fetchAll(PDO::FETCH_ASSOC);
+                            <?php
+                            $contador_carrito = 0;
+                            $cantidad_total = 0;
+                            $precio_unitario_total = 0;
+                            $precio_total = 0;
+                            foreach ($carrito_datos as $row) {
+                                $contador_carrito = $contador_carrito + 1;
+                                $cantidad_total = $cantidad_total + $row['cantidad'];
+                                $precio_unitario_total = $precio_unitario_total + floatval($row['precio']);
+                            ?>
+                                <tr>
+                                    <td scope="row">
+                                        <input type="text" value="<?= $row['inventario_minimo']; ?>" hidden>
+                                        <input type="text" value="<?= $row['id_producto']; ?>" id="id_producto<?= $contador_carrito; ?>" hidden>
+                                        <?= $contador_carrito;  ?>
+                                    </td>
+                                    <td><?= $row['nombre_producto']; ?></td>
+                                    <td> <span id="cantidad_carrito<?= $contador_carrito; ?>"><?= $row['cantidad']; ?></span>
+                                        <input type="text" id="stock_inventario<?= $contador_carrito; ?>" value="<?= $row['stock'] ?>" hidden>
+                                    </td>
+                                    <td>$<?= $row['precio']; ?></td>
+                                    <td>
+                                    <?php
+                                    $cantidad = floatval($row['cantidad']);
+                                    $precio = floatval($row['precio']);
+                                    echo $subtotal = $cantidad * $precio;
+                                    $precio_total = $precio_total + $subtotal;
+                                    ?>
+                                </td>
+                                </tr>
+                            
+                            <?php  }  ?>
 
+                            <tr>
+                                <th colspan="2" style="background-color: #f8f8f8;"></th>
+                                <th style="background-color: #f8f8f8;">
+                                    
+                                </th>
+                                <th style="background-color: #f8f8f8;">
+                                Total de la venta:
+                                </th>
+                                <th style="background-color: #f8f8f8;"> $<?= $precio_total; ?></th>
+                            </tr>
+                        </tbody>
+                        <tfoot>
 
-                                  foreach ($carrito_datos as $item) { 
-                                    $contador_carrito = $contador_carrito + 1;
-                                    $cantidad_total = $cantidad_total + $item['cantidad'];
-                                    $precio_unitario_total = $precio_unitario_total + floatval($item['precio']);
-                                    $id_producto = $item['id_producto']; ?>
-
-<li style="list-style: none;">
-    <input type="text" value="<?= $id_producto; ?>" hidden>
-</li>
-                              <?php    } ?>
-
-    
-                      
-        <?php
-
-        $sql_carrito = "SELECT *, producto.nombre AS nombre_producto, producto.precio_venta AS precio, producto.stock AS stock, producto.id_producto AS id_producto, producto.stock_minimo AS inventario_minimo, 
-           producto.imagen AS Foto
-           FROM tb_carrito AS carrito INNER JOIN tb_almacen AS producto 
-           ON carrito.id_producto = producto.id_producto WHERE nro_venta = '$nro_venta'";
-        $query_carrito = $pdo->prepare($sql_carrito);
-        $query_carrito->execute();
-        $carrito_datos = $query_carrito->fetchAll(PDO::FETCH_ASSOC);
-
-        //$contador_ventas = 0;
-        foreach ($carrito_datos as $row_carro) {
-        }
-
-        ?>
-
-
-
-
-
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-md-12">
@@ -153,17 +168,49 @@ $carrito_datos = $query_carrito->fetchAll(PDO::FETCH_ASSOC);
                                         <button id="delete_venta" class="btn btn-primary btn-block mb-3">
                                             Cancelar venta
                                         </button>
-
                                         <script>
                                             $('#delete_venta').click(function() {
-                                                const id_venta = "<?= $id_venta_get ?>"
-                                                const url_venta_delete = "../app/controllers/ventas/delete.php";
-                                                $.get(url_venta_delete, {
-                                                    id_venta:id_venta
-                                                }, function(datos) {
-                                                    $('#respuesta_venta_d').html(datos);
-                                                });
-                                                // alert("")
+
+                                                update_stock();
+                                                cancelar_venta();
+
+                                                function update_stock() {
+                                                    var i = 1;
+                                                    var n = '<?php echo $contador_carrito; ?>'
+                                                    for (i = 1; i <= n; i++) {
+                                                        var a = '#stock_inventario' + i;
+                                                        var stock_inventario = $(a).val();
+                                                        var b = '#cantidad_carrito' + i;
+                                                        var cantidad_carrito = $(b).html();
+                                                        var c = '#id_producto' + i;
+                                                        var id_producto = $(c).val();
+                                                        const stock_calculado = parseFloat(parseInt(stock_inventario) + parseInt(cantidad_carrito));
+
+                                                       
+                                                      const url_act_stock = "../app/controllers/ventas/actualizar_stock.php";
+                                                        $.get(url_act_stock, {
+                                                        id_producto: id_producto,
+                                                        stock_calculado: stock_calculado
+                                                    }, function(datos) {
+                                                       
+                                                    });
+                                                       
+                                                    }
+                                                }
+
+                                                function cancelar_venta() {
+                                                    const id_venta = "<?= $id_venta_get; ?>";
+                                                    const nro_venta = "<?= $venta['nro_venta']; ?>";
+                                                    
+
+                                                    const url_delete_venta = "../app/controllers/ventas/delete.php";
+                                                        $.get(url_delete_venta, {
+                                                        id_venta: id_venta,
+                                                        nro_venta: nro_venta
+                                                    }, function(datos) {
+                                                        $('#respuesta_venta_d').html(datos);
+                                                    });
+                                                }
                                             });
                                         </script>
 

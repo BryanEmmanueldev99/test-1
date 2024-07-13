@@ -166,12 +166,16 @@ include('../layaout/parte1.php');
                   <td>$<?= $venta_DAO['total_pagado']; ?></td>
                   <td>
                     <div class="btn-group">
-                      <a href="<?php echo $url; ?>ventas/show.php?id=<?= $venta_DAO['id_venta']; ?>" class="btn btn-primary rounded">
+                      <a style="margin-right: 5px;" href="<?php echo $url; ?>ventas/show.php?id=<?= $venta_DAO['id_venta']; ?>" class="btn btn-primary rounded">
                         <i class="fa fa-eye"></i> Ver
                       </a>
 
+                      <a href="<?php echo $url; ?>ventas/facturar_venta.php?id=<?= $venta_DAO['id_venta']; ?>&nro_venta=<?= $venta_DAO['nro_venta']; ?>" class="btn btn-primary rounded">
+                        <i class="fa fa-print"></i> Imprimir
+                      </a>
+
                       <form action="" method="get">
-                        <a style="margin-left: 5px;" href="<?php echo $url; ?>ventas/delete.php?id=<?= $venta_DAO['id_venta']; ?>" class="btn btn-primary rounded">
+                        <a href="<?php echo $url; ?>ventas/delete.php?id=<?= $venta_DAO['id_venta']; ?>" class="btn btn-primary rounded" style="margin-left: 5px;">
                         <i class="fa fa-key"></i> Cancelar venta
                         </a>
                       </form>

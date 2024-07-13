@@ -52,7 +52,7 @@ if ($num_rows>0){
     // Para reutilizar  este codigo en agregar imagen con PHP $sql->bindParam('imagen', $filename);
     $nombreDelArchivo = date("Y-m-d-h-i-s");
     $filename = $nombreDelArchivo."__".$_FILES['imagen']['name'];
-    $location = "../../../almacen/wc_img_productos/".$filename;
+    $location = "../../../almacen/wcstore_img/".$filename;
     
     //hago uso de la propiedad de PHP para subir archivos
     move_uploaded_file($_FILES['imagen']['tmp_name'],$location);

@@ -95,9 +95,14 @@ include('../layaout/parte1.php');
 
                   <td>
                     <div class="btn-group">
-                      <a href="<?php echo $url; ?>almacen/show.php?id=<?php echo $id_producto_DAO; ?>" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i> Ver</a>
-                      <a href="<?php echo $url; ?>almacen/update.php?id=<?php echo $id_producto_DAO; ?>" class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt"></i> Editar</a>
-                      <a href="<?php echo $url; ?>app/controllers/almacen/delete.php?id=<?php echo $id_producto_DAO; ?>" class="btn btn-primary btn-sm"><i class="fa fa-trash"></i> Borrar</a>
+                      <a style="margin-right: 5px; border-radius:5px;" href="<?php echo $url; ?>almacen/show.php?id=<?php echo $id_producto_DAO; ?>" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i> Ver</a>
+                      <a style="border-radius:5px;" href="<?php echo $url; ?>almacen/update.php?id=<?php echo $id_producto_DAO; ?>" class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt" style="border:none !important"></i> Editar</a>
+                      <form action="../app/controllers/almacen/delete.php" method="post">
+                           <input type="text" name="id_producto" value="<?= $id_producto_DAO; ?>" hidden>
+                           <input type="text" name="imagen" value="<?= $img_producto; ?>" hidden>
+                          <button style="margin-left: 5px; border-radius:5px;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-trash"></i> Borrar</button>
+                      </form>
+                      
                     </div>
                   </td>
                 </tr>

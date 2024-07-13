@@ -17,11 +17,10 @@ $id_producto = $_POST['id_producto'];
 $image_text = $_POST['imagen_ruta'];
 
 
-
     if($_FILES['imagen']['name'] != null){
         $nombreDelArchivo = date("Y-m-d-h-i-s");
         $image_text = $nombreDelArchivo."__".$_FILES['imagen']['name'];
-        $location = "../../../almacen/wc_img_productos/".$image_text;
+        $location = "../../../almacen/wcstore_img/".$image_text;
         move_uploaded_file($_FILES['imagen']['tmp_name'],$location);
     }else{
       //echo "no hagas nada";

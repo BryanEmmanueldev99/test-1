@@ -2,7 +2,10 @@
 include('../../config.php');
 
 $id_venta = $_GET['id_venta'];
+$nro_venta = $_GET['nro_venta'];
 $estado = 'inactivo';
+$estado_carro = 'inactivo';
+
 
 $pdo->beginTransaction();
 
@@ -13,6 +16,11 @@ $pdo->beginTransaction();
     if($sql->execute()){
 
 
+      $sql = $pdo->prepare("UPDATE tb_carrito SET status_event_carrito=:status_event_carrito WHERE nro_venta=:nro_venta");
+      $sql->bindParam('status_event_carrito', $estado_carro);
+      $sql->bindParam('nro_venta', $nro_venta);
+      $sql->execute();
+      
         $pdo->commit();
 
        session_start();

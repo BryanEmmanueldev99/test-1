@@ -265,6 +265,10 @@ include('../app/controllers/clientes/listado_de_clientes.php');
                                         <button id="generar_venta" class="btn btn-primary btn-block">
                                             <i class="fa fa-comments-dollar"></i> Generar Venta
                                         </button>
+
+                                        <a class="btn btn-default btn-block mt-3" href="<?= $url ?>/ventas">
+                                            Regresar
+                                        </a>
                                         <div class="respuesta_generar_venta" id="respuesta_generar_venta"></div>
                                         <script>
                                             $('#generar_venta').click(function() {
