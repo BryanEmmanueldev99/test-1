@@ -6,22 +6,7 @@ include('../app/controllers/roles/listado_de_roles.php');
 ?>
 
 
-<?php  include('../layaout/parte1.php');
-/*
-if(isset($_SESSION['mensaje'])){
-  $respuesta = $_SESSION['mensaje']; ?>
-
-
-
-<script>
-    Swal.fire({
-  title: "Error",
-  text: "<?php echo $respuesta; ?>",
-  icon: "error"
-});
-</script>
-
-<?php } unset($_SESSION['mensaje']); */ ?>
+<?php  include('../layaout/parte1.php'); ?>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -61,10 +46,50 @@ if(isset($_SESSION['mensaje'])){
 <input type="text" name="nombres" class="form-control" id="nombres" placeholder="Nombre" required>
 </div>
 
+
+
 <div class="form-group">
 <label for="email">Correo:</label>
 <input type="email" name="email" class="form-control" id="email" placeholder="Correo" required>
+
+<div class="" id="resultado"></div>
+<script>
+$(document).ready(function(){
+                         
+      var verify_user_sesion_email;
+                                             
+      //comprobamos si se pulsa una tecla
+      $("#email").keyup(function(e){
+             //obtenemos el texto introducido en el campo
+             verify_user_sesion_email = $("#email").val();
+             //hace la búsqueda
+             $("#resultado").delay(1000).queue(function(n) {      
+                                           
+                  $("#resultado").html('<img width="30px" class="img-fluid" src="<?= $url;  ?>public/img/ajax_loader.gif" />');
+                                           
+                       $.ajax({
+                              type: "POST",
+                              url: "../app/controllers/usuarios/provider_email_sesion.php",
+                              data: "u="+verify_user_sesion_email,
+                              dataType: "html",
+                              error: function(){
+                                    alert("error en la petición ajax");
+                              },
+                              success: function(data){                                                      
+                                    $("#resultado").html(data);
+                                    n();
+                              }
+                  });
+                                           
+             });
+                                
+      });
+                          
+});
+                       </script>
 </div>
+
+
 
 <div class="form-group">
 <label for="rol">Rol de usuario:</label>

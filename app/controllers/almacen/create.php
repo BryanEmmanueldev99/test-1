@@ -25,7 +25,7 @@ $num_rows = $query_sku->fetchColumn();
 if ($num_rows>0){ 
 
           session_start();
-    $_SESSION['mensaje'] = "$codigo ya existe, prueba con otro SKU";
+    $_SESSION['mensaje'] = "$codigo ya existe, prueba con otro SKU.";
     $_SESSION['icono']   = "error";
     header('location:'.$url.'almacen/create.php');
 
@@ -50,12 +50,18 @@ if ($num_rows>0){
     $sql->bindParam('fyh_creacion', $fechaHora);
     
     // Para reutilizar  este codigo en agregar imagen con PHP $sql->bindParam('imagen', $filename);
-    $nombreDelArchivo = date("Y-m-d-h-i-s");
-    $filename = $nombreDelArchivo."__".$_FILES['imagen']['name'];
-    $location = "../../../almacen/wcstore_img/".$filename;
+    $foto = $_FILES['imagen']['name'];
+    if($foto == false){
+      $filename = $_FILES['imagen']['name'];
+    }else{
+      $nombreDelArchivo = date("Y-m-d-h-i-s");
+      $filename = $nombreDelArchivo."__".$_FILES['imagen']['name'];
+      $location = "../../../almacen/wcstore_img/".$filename;
+      
+      //hago uso de la propiedad de PHP para subir archivos
+      move_uploaded_file($_FILES['imagen']['tmp_name'],$location);
+    }
     
-    //hago uso de la propiedad de PHP para subir archivos
-    move_uploaded_file($_FILES['imagen']['tmp_name'],$location);
     
     
     if( $sql->execute() ){

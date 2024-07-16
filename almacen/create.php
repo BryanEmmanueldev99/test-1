@@ -99,6 +99,7 @@ include('../app/controllers/categorias/listado_de_categorias.php');
                 <div class="col-md-6">
                   <div class="form-group mb-3">
                     <label for="codigo">SKU:</label>
+                    
                     <?php
 
                    /* function ceros($numero)
@@ -115,11 +116,52 @@ include('../app/controllers/categorias/listado_de_categorias.php');
                     }*/
 
                     $contador_id_producto = 1;
-                    foreach ($productos_info as $producto) {
-                      $contador_id_producto = $contador_id_producto + 1;
+                    if($productos_info <= 0){
+                      foreach ($productos_info as $producto) {
+                        $contador_id_producto = $contador_id_producto + 1;
+                      }
                     }
+                    
                     ?>
-                    <input type="number" name="codigo" id="codigo" class="form-control" required>
+                    <input type="number" name="codigo" id="sku_validate" class="form-control" required>
+                    <div id="resultado"></div>
+                       <script>
+$(document).ready(function(){
+                         
+      var verify_sku;
+             
+      //hacemos focus
+      $("#sku_validate").focus();
+                                                 
+      //comprobamos si se pulsa una tecla
+      $("#sku_validate").keyup(function(e){
+             //obtenemos el texto introducido en el campo
+             verify_sku = $("#sku_validate").val();
+             //hace la búsqueda
+             $("#resultado").delay(1000).queue(function(n) {      
+                                           
+                  $("#resultado").html('<img width="30px" class="img-fluid" src="<?= $url;  ?>public/img/ajax_loader.gif" />');
+                                           
+                       $.ajax({
+                              type: "POST",
+                              url: "../app/controllers/almacen/provider_sku.php",
+                              data: "sku_verify="+verify_sku,
+                              dataType: "html",
+                              error: function(){
+                                    alert("error en la petición ajax");
+                              },
+                              success: function(data){                                                      
+                                    $("#resultado").html(data);
+                                    n();
+                              }
+                  });
+                                           
+             });
+                                
+      });
+                          
+});
+                       </script>
                   </div>
                 </div>
                 <div class="col-md-6">

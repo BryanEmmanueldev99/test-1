@@ -90,7 +90,7 @@ class MYPDF extends TCPDF {
 }
 
 // create new PDF document
-$pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, array(80,290), PDF_PAGE_FORMAT, true, 'UTF-8', false);
+$pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, array(75,200), PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
 
 
@@ -131,7 +131,7 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
 // ---------------------------------------------------------
 
 // set font
-$pdf->SetFont('times', 'BI', 10);
+$pdf->SetFont('times', 'BI', 9);
 
 // add a page
 $pdf->AddPage();
@@ -160,7 +160,7 @@ Dirección ***
 Cajero: $nombre_sesion
 Razón social: $cliente
 Folio: $folio
-Fecha: $fecha
+Fecha: $fechaHora
 Resumen de la venta:
 
 EOD;
@@ -174,7 +174,7 @@ foreach($carrito_datos as $producto){
 	$subtotal = $cantidad * $precio;
 $detalles = <<<EOD
 
-**$productos $$precio c/u$cantidad = $subtotal
+**$productos $$precio c/u $cantidad = $$subtotal
 EOD;
 
 // print a block of text using Write()

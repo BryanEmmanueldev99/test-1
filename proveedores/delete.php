@@ -34,7 +34,7 @@ include('../auth/staff_de_ventas.php');
     <div class="container-fluid">
 
       <div class="row-6 col-6 mx-auto">
-        <div class="card card-danger">
+        <div class="card">
           <div class="card-header">
             <h3 class="card-title">¿Deseas eliminar este proveedor?</h3>
           </div>
@@ -99,7 +99,7 @@ include('../auth/staff_de_ventas.php');
                             </div>
                         </div>
             <div class="card-footer">
-              <button type="submit" class="btn btn-danger">Confirmar</button>
+              <button type="submit" class="btn btn-primary">Confirmar</button>
               <a href="<?php echo $url;  ?>proveedores" class="btn btn-default">Regresar</a>
             </div>
           </form>

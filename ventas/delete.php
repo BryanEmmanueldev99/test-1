@@ -203,8 +203,8 @@ include('../app/controllers/ventas/carrito/recupera_carrito_show.php');
                                                     const nro_venta = "<?= $venta['nro_venta']; ?>";
                                                     
 
-                                                    const url_delete_venta = "../app/controllers/ventas/delete.php";
-                                                        $.get(url_delete_venta, {
+                                                    const url_cancelar_venta = "../app/controllers/ventas/cancelar_venta.php";
+                                                        $.get(url_cancelar_venta, {
                                                         id_venta: id_venta,
                                                         nro_venta: nro_venta
                                                     }, function(datos) {

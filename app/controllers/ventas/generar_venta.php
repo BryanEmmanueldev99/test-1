@@ -6,19 +6,21 @@ include('../../config.php');
     $id_cliente = $_GET['id_cliente'];
     $monto_a_cancelar = $_GET['monto_a_cancelar'];
     $nro_venta = $_GET['nro_venta'];
+    $folio_venta = $_GET['folio_venta'];
     $estado = 'activo';
       if(isset($_GET['cambio'])){
          $cambio = $_GET['cambio'];
-      }
+      }  
 
     $pdo->beginTransaction();              
-    $sql = $pdo->prepare("INSERT INTO tb_ventas(id_cliente, nro_venta, cambio, total_pagado, status_event_ventas, fyh_creacion) 
-    VALUES(:id_cliente,:nro_venta,:cambio,:total_pagado,:status_event_ventas,:fyh_creacion)");
+    $sql = $pdo->prepare("INSERT INTO tb_ventas(id_cliente, nro_venta, cambio, total_pagado, folio, status_event_ventas, fyh_creacion) 
+    VALUES(:id_cliente,:nro_venta,:cambio,:total_pagado,:folio,:status_event_ventas,:fyh_creacion)");
 
    $sql->bindParam('id_cliente', $id_cliente);
    $sql->bindParam('nro_venta', $nro_venta);
    $sql->bindParam('cambio', $cambio);
    $sql->bindParam('total_pagado', $monto_a_cancelar);
+   $sql->bindParam('folio', $folio_venta);
    $sql->bindParam('status_event_ventas', $estado);
    $sql->bindParam('fyh_creacion', $fechaHora);
 
@@ -46,5 +48,4 @@ include('../../config.php');
    <?php 
 }
    }
-
 ?>

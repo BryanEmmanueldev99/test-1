@@ -75,7 +75,13 @@ include('../layaout/parte1.php');
                 <tr>
                   <td><?php echo $id_front_end = $id_front_end + 1; ?></td>
                   <td>
-                    <img class="img-fluid img-thumbnail shadow-sm" width="120px" src="<?= $file_producto; ?>" alt="<?= $producto['nombre']; ?>">
+                    
+                  <?php  if (empty($file_producto)){
+                         echo "Foto no disponible";
+                  } else{
+                      echo '<img class="img-fluid img-thumbnail shadow-sm" width="120px" src="'.$file_producto.'" alt="">';
+                  }
+                  ?>
                   </td>
                   <td><?php echo $producto['codigo'] ?></td>
                   <td><?php echo $producto['nombre'] ?></td>

@@ -46,13 +46,14 @@ include('../layaout/parte1.php');
               <i class="fa fa-plus"></i> Agregar nueva venta
             </a>
           </div>
-          <table id="example1" class="table table-bordered table-striped text-center">
+          <table id="example1" class="table table-bordered table-striped text-center table-sm">
             <thead>
               <tr>
                 <th style="width: 10px">Nro</th>
                 <th>Nro de venta</th>
                 <th>Cliente</th>
                 <th>Total Pagado</th>
+                <th>Estado</th>
                 <th>Acciones</th>
               </tr>
             </thead>
@@ -164,18 +165,19 @@ include('../layaout/parte1.php');
                   </td>
                   <td><?= $venta_DAO['cliente']; ?></td>
                   <td>$<?= $venta_DAO['total_pagado']; ?></td>
+                  <td><?= $venta_DAO['status_event_ventas'];  ?></td>
                   <td>
                     <div class="btn-group">
-                      <a style="margin-right: 5px;" href="<?php echo $url; ?>ventas/show.php?id=<?= $venta_DAO['id_venta']; ?>" class="btn btn-primary rounded">
+                      <a style="margin-right: 5px;" href="<?php echo $url; ?>ventas/show.php?id=<?= $venta_DAO['id_venta']; ?>" class="btn btn-primary rounded btn-sm">
                         <i class="fa fa-eye"></i> Ver
                       </a>
 
-                      <a href="<?php echo $url; ?>ventas/facturar_venta.php?id=<?= $venta_DAO['id_venta']; ?>&nro_venta=<?= $venta_DAO['nro_venta']; ?>" class="btn btn-primary rounded">
+                      <a href="<?php echo $url; ?>ventas/facturar_venta.php?id=<?= $venta_DAO['id_venta']; ?>&nro_venta=<?= $venta_DAO['nro_venta']; ?>" class="btn btn-primary rounded btn-sm">
                         <i class="fa fa-print"></i> Imprimir
                       </a>
 
                       <form action="" method="get">
-                        <a href="<?php echo $url; ?>ventas/delete.php?id=<?= $venta_DAO['id_venta']; ?>" class="btn btn-primary rounded" style="margin-left: 5px;">
+                        <a href="<?php echo $url; ?>ventas/delete.php?id=<?= $venta_DAO['id_venta']; ?>" class="btn btn-primary rounded btn-sm" style="margin-left: 5px;">
                         <i class="fa fa-key"></i> Cancelar venta
                         </a>
                       </form>

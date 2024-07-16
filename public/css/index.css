@@ -5,8 +5,13 @@
     text-align: center;
 }
 
-
-
+/*wcstore error message*/
+.alert-danger-error-wcstore{
+    background-color: #fbeeed;
+    border-color: #f7d8dd;
+    color: #d9534f;
+}
+    
 /*position fixed sobre el div sidebard  pendiente*/
 .sidebar {
     position: fixed;

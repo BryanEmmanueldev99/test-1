@@ -54,13 +54,15 @@ if(isset($_SESSION['mensaje_login'])){
 
       <form action="../app/controllers/login/ingreso.php" method="post">
         <div class="input-group mb-3">
-          <input type="email" name="email" class="form-control" placeholder="Correo eléctronico">
+          <input type="email" name="email" id="email_user_verify" class="form-control" placeholder="Correo eléctronico">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
           </div>
         </div>
+
+        
         <div class="input-group mb-3">
           <input type="password" name="password_user" class="form-control" placeholder="Contraseña">
           <div class="input-group-append">

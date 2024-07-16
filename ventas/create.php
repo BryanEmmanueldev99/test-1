@@ -90,7 +90,7 @@ include('../app/controllers/clientes/listado_de_clientes.php');
                                     </thead>
                                     <tbody class="table-group-divider">
                                         <?php
-                                
+
                                         $contador_carrito = 0;
                                         $cantidad_total = 0;
                                         $precio_unitario_total = 0;
@@ -98,7 +98,7 @@ include('../app/controllers/clientes/listado_de_clientes.php');
                                         //$precio_total = 0;
                                         include('../app/controllers/ventas/carrito/recuperar_carrito.php');
                                         foreach ($carrito_datos as $item) {
-                                            $contador_carrito = $contador_carrito + 1;
+                                            $contador_carrito = $contador_carrito +1;
                                             $cantidad_total = $cantidad_total + $item['cantidad'];
                                             $precio_unitario_total = $precio_unitario_total + floatval($item['precio']);
 
@@ -114,8 +114,8 @@ include('../app/controllers/clientes/listado_de_clientes.php');
                                                     <?= $item['nombre_producto']; ?>
                                                 </td>
                                                 <td>
-                                                <span id="cantidad_carrito<?= $contador_carrito; ?>"><?= $item['cantidad']; ?></span>
-                                                <input type="text" id="stock_inventario<?= $contador_carrito; ?>" value="<?= $item['stock'] ?>" hidden>  
+                                                    <span id="cantidad_carrito<?= $contador_carrito; ?>"><?= $item['cantidad']; ?></span>
+                                                    <input type="text" id="stock_inventario<?= $contador_carrito; ?>" value="<?= $item['stock'] ?>" hidden>
                                                 </td>
                                                 <td>$<?= $item['precio']; ?></td>
                                                 <td>
@@ -127,32 +127,39 @@ include('../app/controllers/clientes/listado_de_clientes.php');
                                                     ?>
                                                 </td>
                                                 <td>
-                                                    <form method="get">
+
+                                                <form method="get">
                                                         <input type="text" name="id_carrito" id="id_carrito<?php echo $item['id_carrito']; ?>" value="<?= $item['id_carrito']; ?>" hidden>
                                                         <button type="button" class="btn btn-primary btn-sm" id="btn_delete_carrito_item<?php echo $item['id_carrito']; ?>"> <i class="fa fa-trash"></i> Eliminar</button>
                                                         <div id="respuesta_carro<?php echo $item['id_carrito']; ?>"></div>
                                                     </form>
 
+
                                                     <script>
-                                                        $('#btn_delete_carrito_item<?php echo $item['id_carrito']; ?>').click(function() {
-                                                            //alert('funcioando...');
-                                                            const id_carrito = $('#id_carrito<?php echo $item['id_carrito']; ?>').val();
-                                                            if (id_carrito == "") {
-                                                                Swal.fire({
-                                                                    title: "Algo salio mal",
-                                                                    text: "¡No se borro el producto!",
-                                                                    icon: "error"
-                                                                });
-                                                            } else {
-                                                                const url_carro = "../app/controllers/ventas/carrito/borrar_carrito.php";
-                                                                $.get(url_carro, {
-                                                                    id_carrito: id_carrito
-                                                                }, function(datos) {
-                                                                    $('#respuesta_carro<?php echo $item['id_carrito']; ?>').html(datos);
-                                                                });
-                                                            }
-                                                        });
-                                                    </script>
+            $(document).ready(function(){
+                $("#btn_delete_carrito_item<?php echo $item['id_carrito']; ?>").click(function(){
+                    const id_carrito=$("#id_carrito<?php echo $item['id_carrito']; ?>").val();
+                    
+                    
+
+                    $.ajax({
+                              type: "POST",
+                              url: "../app/controllers/ventas/carrito/borrar_carrito.php",
+                              data: {
+                                id_carrito:id_carrito,
+                              },
+                              dataType: "html",
+                              error: function(){
+                                    alert("error en la petición ajax");
+                              },
+                              success: function(data){                                                      
+                                    $("#respuesta_carro<?php echo $item['id_carrito']; ?>").html(data);
+                                   // n();
+                              }
+                });
+            });
+            });
+        </script>
                                                 </td>
                                             </tr>
                                         <?php } ?>
@@ -237,6 +244,9 @@ include('../app/controllers/clientes/listado_de_clientes.php');
                                 <div class="card-body shadow-sm rounded">
                                     <h5>Crear compra</h5>
 
+                                    <?php $folio_venta = mt_rand(); ?>
+                                    <input type="text" id="folio" hidden value="<?= $folio_venta; ?>">
+
                                     <div class="form-group">
                                         <label for="">Monto a cancelar</label>
                                         <input id="monto_a_cancelar" type="text" class="form-control" style="border:1px solid #e8f0fe;  background-color: #e8f0fe; color: #1a73e8; font-weight: 600;" value="<?= $precio_total; ?>" disabled>
@@ -276,11 +286,18 @@ include('../app/controllers/clientes/listado_de_clientes.php');
                                                 const id_cliente = $('#id_cliente').val();
                                                 const monto_a_cancelar = $('#monto_a_cancelar').val();
                                                 const cambio = $('#cambio').val();
+                                                const folio_venta = $('#folio').val();
 
                                                 if (id_cliente == '') {
                                                     Swal.fire({
                                                         title: "Error",
                                                         text: "Selecciona un cliente",
+                                                        icon: "error"
+                                                    });
+                                                } else if (folio_venta == '') {
+                                                    Swal.fire({
+                                                        title: "Algo salio mal",
+                                                        text: "No se encontró el número del folio para la venta.",
                                                         icon: "error"
                                                     });
                                                 } else if (nro_venta == '') {
@@ -296,31 +313,31 @@ include('../app/controllers/clientes/listado_de_clientes.php');
                                                         icon: "error"
                                                     });
                                                 } else {
-                                                     update_stock();
-                                                     guardar_la_venta();
+                                                    update_stock();
+                                                    guardar_la_venta();
                                                 }
 
-                                                   
+
                                                 function update_stock() {
                                                     var i = 1;
                                                     var n = '<?php echo $contador_carrito; ?>'
-                                                    for( i = 1 ; i <= n; i++ ) {
-                                                        var a = '#stock_inventario'+i;
+                                                    for (i = 1; i <= n; i++) {
+                                                        var a = '#stock_inventario' + i;
                                                         var stock_inventario = $(a).val();
-                                                        var b = '#cantidad_carrito'+i;
+                                                        var b = '#cantidad_carrito' + i;
                                                         var cantidad_carrito = $(b).html();
-                                                        var c = '#id_producto'+i;
+                                                        var c = '#id_producto' + i;
                                                         var id_producto = $(c).val();
                                                         const stock_calculado = parseFloat(stock_inventario - cantidad_carrito);
-                                                        
+
                                                         const url_act_stock = "../app/controllers/ventas/actualizar_stock.php";
                                                         $.get(url_act_stock, {
-                                                        id_producto: id_producto,
-                                                        stock_calculado: stock_calculado
-                                                    }, function(datos) {
-                                                       
-                                                    });
-                                                        
+                                                            id_producto: id_producto,
+                                                            stock_calculado: stock_calculado
+                                                        }, function(datos) {
+
+                                                        });
+
                                                     }
                                                 }
 
@@ -330,7 +347,8 @@ include('../app/controllers/clientes/listado_de_clientes.php');
                                                         id_cliente: id_cliente,
                                                         nro_venta: nro_venta,
                                                         monto_a_cancelar: monto_a_cancelar,
-                                                        cambio:cambio
+                                                        folio_venta: folio_venta,
+                                                        cambio: cambio
                                                     }, function(datos) {
                                                         $('#respuesta_generar_venta').html(datos);
                                                     });

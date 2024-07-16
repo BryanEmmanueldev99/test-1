@@ -24,7 +24,7 @@ $pdo->beginTransaction();
         $pdo->commit();
 
        session_start();
-       $_SESSION['mensaje'] = "Venta borrada correctamente.";
+       $_SESSION['mensaje'] = "Venta cancelada correctamente.";
        $_SESSION['icono']   = "success";
        
        ?>
