@@ -61,7 +61,7 @@ if(isset($_SESSION['mensaje'])){
           <a href="<?= $url; ?>usuarios/create.php" class="btn btn-primary">
             <i class="fa fa-plus"></i> Agregar Usuario
           </a>
-          <table id="example1" class="table table-bordered table-striped text-center">
+          <table id="example1" class="table table-bordered table-striped text-center table-sm">
             <thead>
               <tr>
                 <th style="width: 10px">ID</th>
@@ -85,9 +85,9 @@ if(isset($_SESSION['mensaje'])){
                   <td><?php echo $user_info['rol']; ?></td>
                   <td>
                     <div class="btn-group">
-                      <a href="<?php echo $url; ?>usuarios/show.php?id=<?php echo $id_usuario_DAO; ?>" class="btn btn-primary"><i class="fa fa-eye"></i> Ver</a>
-                      <a href="<?php echo $url; ?>usuarios/update.php?id=<?php echo $id_usuario_DAO; ?>" class="btn btn-primary"><i class="fa fa-pencil-alt"></i> Editar</a>
-                      <a href="<?php echo $url; ?>usuarios/delete.php?id=<?php echo $id_usuario_DAO; ?>" class="btn btn-primary"><i class="fa fa-trash"></i> Borrar</a>
+                      <a href="<?php echo $url; ?>usuarios/show.php?id=<?php echo $id_usuario_DAO; ?>" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i> Ver</a>
+                      <a href="<?php echo $url; ?>usuarios/update.php?id=<?php echo $id_usuario_DAO; ?>" class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt"></i> Editar</a>
+                      <a href="<?php echo $url; ?>usuarios/delete.php?id=<?php echo $id_usuario_DAO; ?>" class="btn btn-primary btn-sm"><i class="fa fa-trash"></i> Borrar</a>
                     </div>
                   </td>
                 </tr>

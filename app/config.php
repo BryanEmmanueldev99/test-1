@@ -1,7 +1,7 @@
 <?php  
 
 //desabilita todos los errores y el modo debug para PHP
-//error_reporting(0); ACTIVAR EN PRODUCCION
+error_reporting(0); 
 
 //Conexión a la BASE DE DATOS del sistema de ventas
 $servidor='localhost';

@@ -44,9 +44,19 @@ include('../layaout/parte1.php');
         <!--new data table-->
         <!-- /.card-header -->
         <div class="card-body shadow-sm rounded almacen table-responsive">
-          <a href="<?= $url; ?>almacen/create.php" class="btn btn-primary">
-            <i class="fa fa-plus"></i> Agregar nuevo producto
-          </a>
+          <div class="row">
+
+            <a href="<?= $url; ?>almacen/create.php" class="btn btn-primary m-3">
+              <i class="fa fa-plus"></i> Agregar nuevo producto
+            </a>
+
+            <p class="m-0" style="display: flex; align-items:center;">ó</p>
+
+            <a href="<?= $url; ?>almacen/import_create.php" class="btn btn-primary m-3">
+              <i class="fa fa-table"></i> Importar desde un excel.
+            </a>
+
+          </div>
           <table id="almacentb" class="table table-bordered table-striped table-responsive text-center">
             <thead>
               <tr>
@@ -75,25 +85,26 @@ include('../layaout/parte1.php');
                 <tr>
                   <td><?php echo $id_front_end = $id_front_end + 1; ?></td>
                   <td>
-                    
-                  <?php  if (empty($file_producto)){
-                         echo "Foto no disponible";
-                  } else{
-                      echo '<img class="img-fluid img-thumbnail shadow-sm" width="120px" src="'.$file_producto.'" alt="">';
-                  }
-                  ?>
+
+                    <?php if (empty($file_producto)) {
+                      echo "Foto no disponible";
+                    } else {
+                      echo '<img class="img-fluid img-thumbnail shadow-sm" width="120px" src="' . $file_producto . '" alt="">';
+                    }
+                    ?>
                   </td>
                   <td><?php echo $producto['codigo'] ?></td>
                   <td><?php echo $producto['nombre'] ?></td>
                   <td><?php echo $producto['descripcion'] ?></td>
-                  <td>  <p <?php if ($producto['stock_minimo'] > $producto['stock']) {
-                                echo 'style="color: red; background-color: #FFEFE1; border-radius: 4px; "';
-                  }else if($producto['stock'] > $producto['stock_maximo'])  {
-                                echo 'style="background-color: #D9EDC9; border-radius: 4px; "';
-                  } ?> >
-                           <?php echo $producto['stock'] ?>  
-                        </p>  
-                   </td>
+                  <td>
+                    <p <?php if ($producto['stock_minimo'] > $producto['stock']) {
+                          echo 'style="color: red; background-color: #FFEFE1; border-radius: 4px; "';
+                        } else if ($producto['stock'] > $producto['stock_maximo']) {
+                          echo 'style="background-color: #D9EDC9; border-radius: 4px; "';
+                        } ?>>
+                      <?php echo $producto['stock'] ?>
+                    </p>
+                  </td>
                   <td><?php echo $producto['precio_compra'] ?></td>
                   <td><?php echo $producto['precio_venta'] ?></td>
                   <td><?php echo $producto['fecha_ingreso'] ?></td>
@@ -104,11 +115,11 @@ include('../layaout/parte1.php');
                       <a style="margin-right: 5px; border-radius:5px;" href="<?php echo $url; ?>almacen/show.php?id=<?php echo $id_producto_DAO; ?>" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i> Ver</a>
                       <a style="border-radius:5px;" href="<?php echo $url; ?>almacen/update.php?id=<?php echo $id_producto_DAO; ?>" class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt" style="border:none !important"></i> Editar</a>
                       <form action="../app/controllers/almacen/delete.php" method="post">
-                           <input type="text" name="id_producto" value="<?= $id_producto_DAO; ?>" hidden>
-                           <input type="text" name="imagen" value="<?= $img_producto; ?>" hidden>
-                          <button style="margin-left: 5px; border-radius:5px;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-trash"></i> Borrar</button>
+                        <input type="text" name="id_producto" value="<?= $id_producto_DAO; ?>" hidden>
+                        <input type="text" name="imagen" value="<?= $img_producto; ?>" hidden>
+                        <button style="margin-left: 5px; border-radius:5px;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-trash"></i> Borrar</button>
                       </form>
-                      
+
                     </div>
                   </td>
                 </tr>

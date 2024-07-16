@@ -20,7 +20,7 @@ $stock_calculado =$_GET['stock_calculado'];
         $_SESSION['icono']   = "error";
        ?>
           <script>
-              location.href = "<?php echo $url; ?>veentas/create.php" ;
+              location.href = "<?php echo $url; ?>ventas/create.php" ;
           </script>
        <?php 
     }

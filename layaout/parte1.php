@@ -138,6 +138,7 @@ Cuerpo del documento
           <div class="info">
             <a href="#" class="d-block"><?php echo $sesion_email; ?></a>
           </div>
+          
         </div>
 
         <!-- SidebarSearch Form 
@@ -153,7 +154,8 @@ Cuerpo del documento
         </div>-->
 
         <!-- Sidebar Menu -->
-        <nav class="mt-5 pt-5">
+        <nav class="mt-5 pt-2">
+        <hr style="width: 80%;">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
               <a href="<?php echo $url; ?>" class="nav-link acitve">

@@ -182,7 +182,7 @@ $(document).ready(function(){
                     <label for="stock">Categoría:</label>
                     <div class="d-flex">
                       <button type="button" data-toggle="modal" data-target="#modal-create" class="btn btn-primary shadow" style="border-radius: 50%; border:3px solid #fff;"><i class="fa fa-plus"></i></button>
-                      <select name="id_categoria" id="id_categoria" class="form-control" required>
+                      <select name="id_categoria" id="id_categoria" class="form-control">
                         <?php foreach ($categorias_info as $categorias) { ?>
                           <option value="<?php echo $categorias['id_categoria']; ?>"><?php echo $categorias['nombre_categoria']; ?></option>
                         <?php } ?>
@@ -229,7 +229,7 @@ $(document).ready(function(){
                 <div class="col-md-6">
                   <div class="form-group mb-3">
                     <label for="fecha_ingreso">Fecha de ingreso:</label>
-                    <input type="date" name="fecha_ingreso" class="form-control" id="fecha_ingreso" required>
+                    <input type="date" name="fecha_ingreso" class="form-control" id="fecha_ingreso">
                   </div>
                 </div>
 

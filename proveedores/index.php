@@ -46,7 +46,7 @@ include('../layaout/parte1.php');
               <i class="fa fa-plus"></i> Agregar Proveedor
             </button>
           </div>
-          <table id="example1" class="table table-bordered table-striped text-center">
+          <table id="example1" class="table table-bordered table-striped text-center table-sm">
             <thead>
               <tr>
                 <th style="width: 10px">Nro</th>
