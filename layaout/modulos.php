@@ -170,6 +170,46 @@ while($id_rol_sesion == $WC_Admin && $i == 0) { ?>
               </ul>
             </li>
 
+            <!--Modulos Inventario-->
+            <li class="nav-item">
+              <a href="#" class="nav-link active">
+              <i class="nav-icon fa fa-cubes"></i>
+                <p>
+                  Inventario
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?php echo $url; ?>inventario/" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Ajuste de inventario</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!--Modulos Clientes-->
+            <li class="nav-item">
+              <a href="#" class="nav-link active">
+              <i class="nav-icon fa fa-star"></i>
+                <p>
+                  Clientes
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?php echo $url; ?>client/" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Listado de clientes</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
 <?php    $i++;  }  ?>
 
 

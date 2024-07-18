@@ -13,6 +13,7 @@ foreach ($fileproductos as $producto_excel) {
   $productosaray[] = explode(",", $producto_excel);
 }
 
+
 // insertar productos
 foreach ($productosaray as $row) {
 
