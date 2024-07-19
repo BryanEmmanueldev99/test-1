@@ -13,11 +13,11 @@ include('../layaout/parte1.php');
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Listado de productos</h1>
+          <h1 class="m-0">Ajuste de inventario</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Listado de productos</a></li>
+            <li class="breadcrumb-item"><a href="#">Inventario</a></li>
             <li class="breadcrumb-item active">Ajuste de inventario</li>
           </ol>
         </div><!-- /.col -->

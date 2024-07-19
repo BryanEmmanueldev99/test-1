@@ -42,7 +42,7 @@ include('../auth/index.php');
     <input type="file" name="fileproductos" class="drop-zone__input">
   </div>
                     <div class="container mt-3">
-                        <button class="btn btn-primary" onclick="cargaProductos()">
+                        <button class="btn btn-primary" type="submit">
                             <i class="fa fa-upload"></i>
                             Cargar Productos
                         </button>
@@ -54,23 +54,7 @@ include('../auth/index.php');
 
             
 
-            <script> 
-                function cargaProductos(){
-                    const Subidaproductos = new FormData($('#filesForm')[0]);
-        $.ajax({
-
-            url: "../app/controllers/almacen/importar_productos.php",
-            type: "post",
-            data : Subidaproductos,
-            processData: false,
-            contentType: false,
-            success: function(data)
-            {
-              $("#resultado_data").html('<img width="30px" class="img-fluid" src="<?= $url;  ?>public/img/ajax_loader.gif" />');
-            }
-        });
-                }
-            </script>
+           
 
             <!-- /.row -->
         </div><!-- /.container-fluid -->

@@ -214,6 +214,7 @@ include('../layaout/parte1.php');
                 </div>
                 <div class="container" id="respuesta_delete"></div>
 
+                
                        <script>
                            $('#borrar_compra').click(function () {
                                                 var id_compra = '<?php echo $detalle_compra['id_compra']; ?>';
@@ -221,7 +222,7 @@ include('../layaout/parte1.php');
                                                 var cantidad_compra = '<?= $detalle_compra['cantidad']; ?>';
                                                 var stock_actual = '<?= $detalle_compra['stock']; ?>';
 
-                                                
+                                            
                                                 var url = "../app/controllers/compras/delete.php";
                                                     $.get(url,{id_compra:id_compra,id_producto:id_producto,cantidad_compra:cantidad_compra,stock_actual:stock_actual},function (datos) {
                                                         $('#respuesta_delete').html(datos);

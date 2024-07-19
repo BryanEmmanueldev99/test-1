@@ -31,7 +31,7 @@ include('../auth/index.php');
   <div class="content">
     <div class="container-fluid">
 
-      <div class="row-6 col-6 mx-auto">
+      <div class="w-50 card-fluid-responsive mx-auto">
         <div class="card">
           <div class="card-header">
             <h3 class="card-title">¿Deseas eliminar este usuario?</h3>

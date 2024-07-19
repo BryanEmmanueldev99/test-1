@@ -5,22 +5,7 @@ include('../auth/index.php');
 ?>
 
 
-<?php  include('../layaout/parte1.php');
-/*
-if(isset($_SESSION['mensaje'])){
-  $respuesta = $_SESSION['mensaje']; ?>
-
-
-
-<script>
-    Swal.fire({
-  title: "Error",
-  text: "<?php echo $respuesta; ?>",
-  icon: "error"
-});
-</script>
-
-<?php } unset($_SESSION['mensaje']); */ ?>
+<?php  include('../layaout/parte1.php'); ?>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -46,18 +31,18 @@ if(isset($_SESSION['mensaje'])){
     <div class="content">
       <div class="container-fluid">
 
-          <div class="row-6 col-6 mx-auto">
+          <div class="w-50 card-fluid-responsive mx-auto rounded p-0 shadow-lg card card-body">
           <div class="card card-primary">
 <div class="card-header">
-<h3 class="card-title">Agrega un rol a la base de datos</h3>
+<h3 class="card-title">Agregar rol nuevo al punto de venta.</h3>
 </div>
 
 
-<form class="shadow" action="../app/controllers/roles/create.php" method="POST">
+<form action="../app/controllers/roles/create.php" method="POST">
   <div class="card-body">
    <div class="form-group">
     <label for="rol">Nombre del rol:</label>
-    <input type="text" name="rol" class="form-control" id="rol" placeholder="Agregue un nombre" required>
+    <input type="text" name="rol" class="form-control" id="rol" placeholder="nombre del rol" required>
    </div>
   </div>
 

@@ -2,6 +2,7 @@
 
 include('../../config.php');
 
+
 $fileproductos = $_FILES['fileproductos'];
 $fileproductos = file_get_contents($fileproductos['tmp_name']);
 
@@ -13,12 +14,11 @@ foreach ($fileproductos as $producto_excel) {
   $productosaray[] = explode(",", $producto_excel);
 }
 
-
 // insertar productos
+
 foreach ($productosaray as $row) {
 
-
-  $pdo->query("INSERT INTO tb_almacen 
+ $sql = $pdo->prepare("INSERT INTO tb_almacen 
 						(codigo,
 						 nombre,
 						 descripcion,
@@ -28,8 +28,7 @@ foreach ($productosaray as $row) {
              stock_minimo,
              stock_maximo,
              precio_compra,
-             precio_venta
-                         )
+             precio_venta)
 						 VALUES
 
 						 ('{$row[0]}',
@@ -44,19 +43,18 @@ foreach ($productosaray as $row) {
                {$row[9]}
 						   )
 						 ");
+             
+          $sql->execute();
 }
-
 
 session_start();
 $_SESSION['mensaje'] = "Productos Cargados exitosamente.";
 $_SESSION['icono']   = "success";
 ?>
 <script>
-  location.href = "<?php echo $url; ?>almacen/";
+  location.href = "<?= $url; ?>almacen/";
 </script>
 <?php
-
-
 
 
 ?>
