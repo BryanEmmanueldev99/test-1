@@ -2,10 +2,19 @@
 
 //incluyo mi archivo de configuracion donde esta la conexión
 include('../../config.php');
+include('../../funciones/funciones.php');
 
-//Recupero los valores del formulario
-$email = $_POST['email'];
-$password_user = $_POST['password_user'];
+if(isset($_POST)){
+
+     //Recupero los valores del formulario
+$email = wcs_esc_html($_POST['email']);
+$password_user = wcs_esc_html($_POST['password_user']);
+    
+ if(wcs_esc_html($email)){
+     session_start();
+     $_SESSION['mensaje_login'] = "Datos Incorrectos";
+     header('location:'.$url.'login/');
+ }
 
 //defino el valor de mi contador
 $contador = 0;
@@ -41,6 +50,12 @@ if ($contador > 0 && $password_user == $user_pass) {
      $_SESSION['mensaje_login'] = "Datos Incorrectos";
      header('location:'.$url.'login/');
 }
+}else{
+     header( "refresh:10; $url " );
+     echo "Error Internal Server";
+}
+
+
 
 /*CODIGO ALTERNO DE LOGUEO
 Entonces pregunto a PHP, si micontador es mayor a 0 ¡Y A ADEMAS los valores tanto de la contraseña del formulario login y la que se recupero de la BD son iguales. Que se ejecute el siguiente bloque de código

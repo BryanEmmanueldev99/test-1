@@ -3,6 +3,10 @@
 include('../../config.php');
 
 
+
+
+
+
 $fileproductos = $_FILES['fileproductos'];
 $fileproductos = file_get_contents($fileproductos['tmp_name']);
 
@@ -28,7 +32,9 @@ foreach ($productosaray as $row) {
              stock_minimo,
              stock_maximo,
              precio_compra,
-             precio_venta)
+             precio_venta,
+
+             )
 						 VALUES
 
 						 ('{$row[0]}',
@@ -40,7 +46,7 @@ foreach ($productosaray as $row) {
               '{$row[6]}',
               '{$row[7]}',
               '{$row[8]}',
-               {$row[9]}
+               {$row[9]},
 						   )
 						 ");
              

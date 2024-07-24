@@ -1,9 +1,11 @@
 <?php
 include('app/config.php');
+include('app/funciones/funciones.php');
 include('layaout/sesion.php');
 include('app/controllers/usuarios/listado_de_usuarios.php');
 include('app/controllers/roles/listado_de_roles.php');
 include('app/controllers/almacen/listado_de_productos.php');
+
 ?>
 
 
