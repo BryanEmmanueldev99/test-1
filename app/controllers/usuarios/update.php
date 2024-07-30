@@ -1,5 +1,6 @@
 <?php 
 include('../../config.php');
+include('../../funciones/funciones.php');
 
 //UPDATE C-R-U-D
 $nombres = $_POST['nombres'];
@@ -7,7 +8,7 @@ $email = $_POST['email'];
 $password_user = $_POST['password_user'];
 $password_repeat = $_POST['password_repeat'];
 $rol = $_POST['rol'];
-$id_usuario = $_POST['id_usuario'];
+$id_usuario = openssl_decrypt($_POST['id_usuario'],AES,KEY);
 
 if($password_user == ""){
 

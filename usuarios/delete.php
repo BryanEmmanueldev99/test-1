@@ -1,5 +1,6 @@
-<?php
-include('../app/config.php');
+<?php 
+include('../app/config.php'); 
+include('../app/funciones/funciones.php');
 include('../app/controllers/usuarios/show_usuario_dao.php');
 include('../layaout/sesion.php');
 include('../auth/index.php');
@@ -42,28 +43,28 @@ include('../auth/index.php');
             <div class="card-body">
               <div class="form-group">
 
-                <input type="hidden" name="id_usuario" id="id_usuario" class="form-control" value="<?php echo $id_usuario_get_DAO; ?> ">
+                <input type="hidden" name="id_usuario" id="id_usuario" class="form-control" value="<?= openssl_encrypt($id_usuario_get_DAO,AES,KEY); ?> ">
 
                 <label for="nombres">Nombre:</label>
-                <input type="text" name="nombres" value="<?php echo $nombre_DAO; ?>" class="form-control" id="nombres" placeholder="Nombre" disabled>
+                <input type="text" name="nombres" value="<?= $nombre_DAO; ?>" class="form-control" id="nombres" placeholder="Nombre" disabled>
               </div>
 
               <div class="form-group">
                 <label for="email">Correo:</label>
-                <input type="email" name="email" value="<?php echo $correo_DAO; ?>" class="form-control" id="email" placeholder="Correo" disabled>
+                <input type="email" name="email" value="<?= $correo_DAO; ?>" class="form-control" id="email" placeholder="Correo" disabled>
               </div>
 
 
               <div class="form-group">
                 <label for="rol">Rol de usuario:</label>
-                <input type="text" name="rol" value="<?php echo $rol; ?>" class="form-control" id="rol" placeholder="Rol" disabled>
+                <input type="text" name="rol" value="<?= $rol; ?>" class="form-control" id="rol" placeholder="Rol" disabled>
               </div>
 
             </div>
 
             <div class="card-footer">
               <button type="submit" class="btn btn-primary">Confirmar</button>
-              <a href="<?php echo $url;  ?>usuarios" class="btn btn-default">Regresar</a>
+              <a href="<?= $url;  ?>usuarios" class="btn btn-default">Regresar</a>
             </div>
           </form>
         </div>

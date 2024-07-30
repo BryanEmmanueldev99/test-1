@@ -4,6 +4,7 @@ include('../layaout/sesion.php');
 include('../auth/index.php');
 include('../app/controllers/usuarios/listado_de_usuarios.php');
 include('../layaout/parte1.php');
+include('../app/funciones/funciones.php');
 ?>
 
 <?php /*
@@ -75,9 +76,7 @@ if(isset($_SESSION['mensaje'])){
             <tbody>
               <?php
               $id_front_end = 0;
-              foreach ($usuarios_info as $user_info) {
-                $id_usuario_DAO = $user_info['id_usuario'];
-              ?>
+              foreach ($usuarios_info as $user_info) : $id_usuario_DAO = $user_info['id_usuario']; ?>
                 <tr>
                   <td><?= $id_front_end = $id_front_end + 1; ?></td>
                   <td><?= $user_info['nombres']; ?></td>
@@ -85,13 +84,13 @@ if(isset($_SESSION['mensaje'])){
                   <td><?= $user_info['rol']; ?></td>
                   <td>
                     <div class="btn-group">
-                      <a href="<?= $url; ?>usuarios/show.php?id=<?= $id_usuario_DAO; ?>" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i> Ver</a>
-                      <a href="<?= $url; ?>usuarios/update.php?id=<?= $id_usuario_DAO; ?>" class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt"></i> Editar</a>
-                      <a href="<?= $url; ?>usuarios/delete.php?id=<?= $id_usuario_DAO; ?>" class="btn btn-primary btn-sm"><i class="fa fa-trash"></i> Borrar</a>
+                      <a href="<?= $url; ?>usuarios/show.php?id=<?= urlencode(openssl_encrypt($id_usuario_DAO, AES,KEY)); ?>" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i> Ver</a>
+                      <a href="<?= $url; ?>usuarios/update.php?id=<?= urlencode(openssl_encrypt($id_usuario_DAO, AES,KEY)); ?>" class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt"></i> Editar</a>
+                      <a href="<?= $url; ?>usuarios/delete.php?id=<?= urlencode(openssl_encrypt($id_usuario_DAO, AES,KEY)); ?>" class="btn btn-primary btn-sm"><i class="fa fa-trash"></i> Borrar</a>
                     </div>
                   </td>
                 </tr>
-              <?php } ?>
+              <?php endforeach; ?>
 
             </tbody>
           </table>

@@ -1,5 +1,6 @@
 <?php 
 include('../app/config.php'); 
+include('../app/funciones/funciones.php');
 include('../app/controllers/usuarios/update_usuario_dao.php');
 include('../app/controllers/roles/listado_de_roles.php');
 include('../layaout/sesion.php');
@@ -46,7 +47,7 @@ include('../layaout/parte1.php');
 <div class="card-body">
 
 <div class="form-group">
-<input type="hidden" name="id_usuario" value="<?= $id_usuario; ?>" class="form-control" id="id_usuario" required>
+<input type="text" name="id_usuario" value="<?= openssl_encrypt($id_usuario,AES,KEY); ?>" hidden class="form-control" id="id_usuario" required>
 </div>
 
 

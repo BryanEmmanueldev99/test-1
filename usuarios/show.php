@@ -1,5 +1,6 @@
 <?php 
 include('../app/config.php'); 
+include('../app/funciones/funciones.php');
 include('../app/controllers/usuarios/show_usuario_dao.php');
 include('../layaout/sesion.php');
 include('../auth/index.php');
@@ -40,7 +41,7 @@ include('../auth/index.php');
 </div>
 
 
-<form class="shadow" action="../app/controllers/usuarios/create.php" method="POST">
+<form class="shadow">
 <div class="card-body">
 <div class="form-group">
 <label for="nombres">Nombre:</label>
