@@ -23,7 +23,6 @@ if ($emailExistencia > 0) {
     /*
         Aquí procede la alta del usuario
     */
-
     if($password_user == $password_repeat){
         $password_repeat = password_hash($password_user, PASSWORD_DEFAULT);
     
@@ -44,10 +43,15 @@ if ($emailExistencia > 0) {
         
         }else{
             session_start();
-            $_SESSION['mensaje'] = "Upss, las contraseñas no son iguales";
-            $_SESSION['icono']   = "error";
-            header('location:'.$url.'usuarios/create.php');
+        $_SESSION['mensaje'] = "Error desconocido, intente de nuevo.";
+        $_SESSION['icono']   = "error";
+        header('location:'.$url.'usuarios/create.php');
         }
+    }else{
+        session_start();
+        $_SESSION['mensaje'] = "Upss, las contraseñas no son iguales";
+        $_SESSION['icono']   = "error";
+        header('location:'.$url.'usuarios/create.php');
     }
     
 }

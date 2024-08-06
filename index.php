@@ -11,7 +11,6 @@ include('app/controllers/almacen/listado_de_productos.php');
 
 <?php include('layaout/parte1.php'); ?>
 
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -19,7 +18,7 @@ include('app/controllers/almacen/listado_de_productos.php');
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 fs-4">Hola <?php echo $nombre_sesion; ?> - <span><?php echo $rol_sesion ?></span> </h1>
+          <h1 class="m-0 fs-4">Hola <?= $nombre_sesion; ?> - <span><?= $rol_sesion ?></span></h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
